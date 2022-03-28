@@ -24,6 +24,10 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Jar/mysql-connector-java-5.1.19-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Jar/mysql-connector-java-5.1.19-bin.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
