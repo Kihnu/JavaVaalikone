@@ -4,7 +4,6 @@ public class Questions {
 	private int id;
 	private String question;
 	public Questions(String id, String question) {
-
 		setId(id);
 		this.question=question;
 	}

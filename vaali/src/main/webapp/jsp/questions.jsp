@@ -19,17 +19,18 @@
 <body>
 <h2 style="color:red">Kyssäri</h2>
 <ol>
-<c:forEach var="questions" items="${requestScope.questions}" >
-<li>${questions.id}: ${questions.question} <a href='/delete?id=${questions.id}'>delete</a> <a href='/readtoupdate?id=${questions.id}'>update</a>
+<c:forEach var="questions" items="${requestScope.questionlist}" >
+<li>${questions.question_id}: ${questions.question}
 </c:forEach>
 </ol>
 
 <%
-ArrayList<Questions> questions=(ArrayList<Questions>)request.getAttribute("questions");
+@SuppressWarnings("unchecked")
+ArrayList<Questions> questionList=(ArrayList<Questions>)request.getAttribute("questionlist");
 
-for (int i=0;questions!=null && i<questions.size();i++){
-	Questions q=questions.get(i);
-	out.println(q.getId()+": "+q.getQuestion()+"<a href='/delete?id="+q.getId()+"'>delete</a> <a href='/readtoupdate?id="+q.getId()+"'>update</a>");
+for (int i = 0; questionList != null && i < questionList.size(); i++){
+	Questions q = questionList.get(i);
+	out.println(q.getId() + ": " + q.getQuestion());
 }
 %>
 

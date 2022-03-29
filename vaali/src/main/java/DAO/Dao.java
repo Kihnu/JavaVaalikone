@@ -1,11 +1,12 @@
 package DAO;
 
 import java.sql.DriverManager;
-//import java.sql.PreparedStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import data.Questions;
 import java.sql.Connection;
 
@@ -46,12 +47,30 @@ public class Dao {
 			ResultSet RS = stmt.executeQuery("select * from questions");
 			while (RS.next()) {
 				Questions q = new Questions();
-				q.setId(RS.getInt("id"));
+				q.setId(RS.getInt("question_id"));
 				q.setQuestion(RS.getString("question"));
 				list.add(q);
 			}
 			return list;
 		} catch (SQLException e) {
+			return null;
+		}
+	}
+	
+	public Questions readQuestion(String id) {
+		Questions q = null;
+		try {
+			String sql = "select* from questions where id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setNString(1, id);
+			ResultSet RS = pstmt.executeQuery();
+			while (RS.next()) {
+				q = new Questions();
+				q.setId(RS.getInt("id"));
+				q.setQuestion(RS.getNString("question"));
+			}
+			return q;
+		} catch(SQLException e) {
 			return null;
 		}
 	}
