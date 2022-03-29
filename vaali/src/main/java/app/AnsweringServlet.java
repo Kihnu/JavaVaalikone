@@ -48,7 +48,7 @@ public class AnsweringServlet extends HttpServlet {
 		} else {
 			System.out.println("No connection to database");
 		}
-			
+		
 		request.setAttribute("questionlist", list);
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/ANSWERING.jsp");
 		rd.forward(request, response);
