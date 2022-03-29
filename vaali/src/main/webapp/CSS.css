@@ -1,0 +1,17 @@
+@charset "ISO-8859-1";
+
+	h1 {
+
+	position: relative;
+	text-align: center;
+ 	color: black;
+  	font-size: 70px;
+	}
+form {
+	text-align: center;
+	}
+	
+button {
+	font-size: 30px;
+	
+}
