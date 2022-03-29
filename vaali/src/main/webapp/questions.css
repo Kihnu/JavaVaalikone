@@ -21,3 +21,14 @@ p {
 .radiogrp label {
 	display: block;
 }
+
+.number {
+	font-size: 24px;
+	background-color: orange;
+	text-align: center;
+}
+
+.question {
+	text-align: center; 
+	font-size: 30px;
+}
