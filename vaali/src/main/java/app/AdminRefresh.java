@@ -45,7 +45,6 @@ public class AdminRefresh extends HttpServlet {
 
 		ArrayList<Questions> list = null;
 
-
 		if (dao.getConnection()) {
 			
 			String sql = "";
