@@ -44,6 +44,10 @@ public class Dao {
 		ArrayList<Questions> list = new ArrayList<>();
 		try {
 			Statement stmt = conn.createStatement();
+			String sql = "";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			sql = "use vaalikone";
+			statement.executeUpdate(sql);
 			ResultSet RS = stmt.executeQuery("select * from questions");
 			while (RS.next()) {
 				Questions q = new Questions();
@@ -53,8 +57,10 @@ public class Dao {
 			}
 			return list;
 		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 			return null;
 		}
+		
 	}
 	
 	public Questions readQuestion(String id) {
