@@ -25,7 +25,7 @@
 	<div class="vaihtoehdot">
 		<ol>
 			<c:forEach var="questions" items="${requestScope.questionlist}">
-				<p class="number">${questions.id}/${questionlist.size()}:</p>
+				<p class="number">${questions.id} / ${questionlist.size()}</p>
 				<div class="question">${questions.question}
 					<br>
 				</div>
