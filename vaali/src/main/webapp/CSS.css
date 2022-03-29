@@ -1,39 +1,39 @@
 @charset "ISO-8859-1";
 
 body {
-  background-color:  #2e86c1 ;
+	background-color: #2e86c1;
 }
-	h1 {
 
+h1 {
 	position: relative;
 	text-align: center;
- 	color: black;
-  	font-size: 70px;
-	}
+	color: black;
+	font-size: 70px;
+}
+
 form {
 	text-align: center;
-	}
+}
 
-button{
+button {
 	font-size: 30px;
 }
 
 .button {
-  border: none;
-  color: black;
-  background-color: orange;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
+	border: none;
+	color: black;
+	background-color: orange;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
 }
+
 .button:hover {
-  background-color:  #d35400;
-  color: white;
-  }
-
-
+	background-color: #d35400;
+	color: white;
+}
