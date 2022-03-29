@@ -34,6 +34,28 @@ p {
 }
 
 .question {
-	text-align: center; 
+	text-align: center;
 	font-size: 30px;
+}
+
+.button {
+	border: none;
+	color: black;
+	background-color: orange;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+
+.button:hover {
+	background-color: #d35400;
+	color: white;
 }

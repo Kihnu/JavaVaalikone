@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import app.Comparison;
 import data.Questions;
 import java.sql.Connection;
 
@@ -15,26 +16,26 @@ public class Dao {
 	private String pass;
 	private String url;
 	private Connection conn;
+	//private Comparison com;
 
 	public Dao(String url, String user, String pass) {
 		this.url = url;
 		this.user = user;
-		this.pass = pass;	
+		this.pass = pass;
 	}
 
 	public boolean getConnection() {
 		try {
-	        if (conn == null || conn.isClosed()) {
-	            try {
-	                Class.forName("com.mysql.jdbc.Driver").newInstance();
-	            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-	                throw new SQLException(e);
-	            }
-	            conn = DriverManager.getConnection(url, user, pass);
-	        }
-	        return true;
-		}
-		catch (SQLException e) {
+			if (conn == null || conn.isClosed()) {
+				try {
+					Class.forName("com.mysql.jdbc.Driver").newInstance();
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+					throw new SQLException(e);
+				}
+				conn = DriverManager.getConnection(url, user, pass);
+			}
+			return true;
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return false;
 		}
@@ -60,24 +61,27 @@ public class Dao {
 			System.out.println(e.getMessage());
 			return null;
 		}
-		
+
 	}
-	
-	public Questions readQuestion(String id) {
-		Questions q = null;
-		try {
-			String sql = "select* from questions where id=?";
-			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setNString(1, id);
-			ResultSet RS = pstmt.executeQuery();
-			while (RS.next()) {
-				q = new Questions();
-				q.setId(RS.getInt("id"));
-				q.setQuestion(RS.getNString("question"));
-			}
-			return q;
-		} catch(SQLException e) {
-			return null;
-		}
-	}
+
+//	public ArrayList<UserAnswer> userAnswer() {
+//		ArrayList<UserAnswer> list = new ArrayList<>();
+//		try {
+//			Statement stmt = conn.createStatement();
+//			String sql = "";
+//			PreparedStatement statement = conn.prepareStatement(sql);
+//			sql = "use vaalikone";
+//			statement.executeUpdate(sql);
+//			sql = "update user_answers set answer_int=? where id=?";
+//			statement.setString(1, com.g);
+//			statement.setString(2, );
+//			ResultSet RS = statement.executeQuery();
+//			
+//			return list;
+//
+//		} catch (SQLException e) {
+//			System.out.println(e.getMessage());
+//			return null;
+//		}
+//	}
 }
