@@ -69,11 +69,15 @@ public class AdminRefresh extends HttpServlet {
 			sql = "DROP DATABASE if exists Vaalikone;"; // Poistaa mahdollisen databasen
 			statement.executeUpdate(sql);
 
+
 			sql = "CREATE DATABASE Vaalikone;"; // Luo uudestaan Vaalikone DB:n
 			statement.executeUpdate(sql);
-
+      System.out.println("Vaalikone db dropattu");
+      
 			sql = "use Vaalikone;"; // Joo
 			statement.executeUpdate(sql);
+      System.out.println("Vaalikone db aktivoitu");
+      // Ei toimi alla oleva koodi, T. Erik :/
 
 			sql = "CREATE TABLE candidates (candidate_id int(3) NOT NULL AUTO_INCREMENT, surname varchar(30) NOT NULL, "
 					+ "firstname varchar(30), age int(3), party varchar(30) NOT NULL, profession varchar(60), why varchar(600), "
@@ -88,6 +92,9 @@ public class AdminRefresh extends HttpServlet {
 					+ "REFERENCES questions (question_id));";
 			statement.executeUpdate(sql);
 
+			System.out.println("Candidates taulu luotu");
+			
+      
 			// TESTI
 			sql = "INSERT INTO candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES ('aku', 'ankka', 1, 'pomo', 'homo', 'muute vaa', 'jotai', 313)";
 
