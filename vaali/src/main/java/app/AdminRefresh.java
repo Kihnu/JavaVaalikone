@@ -72,14 +72,17 @@ public class AdminRefresh extends HttpServlet {
 			sql = "DROP DATABASE if exists Vaalikone;"; // Poistaa mahdollisen databasen
 			statement.executeUpdate(sql);
 			
-			System.out.println("Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee!");
+			System.out.println("Vaalikone db dropattu");
 			
 			sql = "CREATE DATABASE Vaalikone;"; // Luo uudestaan Vaalikone DB:n
 			statement.executeUpdate(sql);
+			System.out.println("Vaalikone db luotu");
 			
 			sql = "use Vaalikone;"; // Joo
 			statement.executeUpdate(sql);
+			System.out.println("Vaalikone db aktivoitu");
 			
+			// Ei toimi alla oleva koodi
 			sql = "CREATE TABLE candidates (candidate_id int(3) NOT NULL AUTO_INCREMENT, surname varchar(30) NOT NULL, "
 					+ "firstname varchar(30), age int(3), party varchar(30) NOT NULL, profession varchar(60), why varchar(600), "
 					+ "what varchar(600), vote_nro int(4) NOT NULL, PRIMARY KEY (candidate_id, vote_nro)); "
@@ -90,7 +93,7 @@ public class AdminRefresh extends HttpServlet {
 					+ "FOREIGN KEY (candidate_id) REFERENCES candidates (candidate_id), FOREIGN KEY (question_id) "
 					+ "REFERENCES questions (question_id));";
 			statement.executeUpdate(sql);
-			
+			System.out.println("Candidates taulu luotu");
 			
 			// TESTI
 			sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; 
