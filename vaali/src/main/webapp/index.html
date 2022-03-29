@@ -4,18 +4,53 @@
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
     <title>Hello App Engine</title>
   </head>
+  <!-- CSS stylessheet laittaa jonnekkin -->
+  <style>
+  body {
+  background-color:  #2e86c1 ;
+  }
+  .button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  }
 
+  .button1 {
+  background-color: orange;
+  color: black;
+  border: 2px solid black;
+  }
+
+  .button1:hover {
+  background-color:  #d35400;
+  color: white;
+  }
+  </style>
   <body>
     <h1>Duckburg election machine​</h1>
     
 
 =======
 
-
+	<table>
       <tr>
-        <td><a href='/AdminRefresh'>The Admin</a></td>
-        
+        <td><a href='/AdminRefresh'><button class="button button1">The Admin</button></a></td>
       </tr>
+     
     </table> -->
+    
+    <!-- All Candidates nappi-->
+    <a href='/AllCandidates'><button class="button button1">All Candidates</button></a>
+    
+    <!-- Demo nappi -->
+    <a href='/demo'><button class="button button1">Demo</button></a>
+    
   </body>
 </html>
