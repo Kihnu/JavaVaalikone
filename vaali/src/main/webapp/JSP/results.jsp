@@ -4,9 +4,27 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+ <link rel="stylesheet" href="CSS/Results.css">
+<title>Results</title>
 </head>
 <body>
-sdssdsds
+<h1>
+
+<br>
+BEST CANDIDATE FOR YOU IS...
+
+</h1>
+
+<div>
+
+<br>
+<br>
+<br>
+
+tähän tietoja
+
+
+</div>
+
 </body>
 </html>
