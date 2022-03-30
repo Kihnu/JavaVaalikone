@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.ArrayList" %> 
- <%@ page import="data.Candidates" %>    
+<%@ page import="data.Candidates" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 
 <!DOCTYPE html>
@@ -15,6 +15,7 @@
 <h1>All Candidates</h1>
 
 <%
+@SuppressWarnings("unchecked")
 ArrayList<Candidates> Candidates=(ArrayList<Candidates>)request.getAttribute("Candidates");
 
 for (int i=0;Candidates!=null && i<Candidates.size();i++){
