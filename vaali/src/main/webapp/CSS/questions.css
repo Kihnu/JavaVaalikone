@@ -18,6 +18,11 @@ p {
 	display: inline-block;
 }
 
+.radiogrp input {
+	height: 25px;
+	width: 25px;
+}
+
 .radiogrp label {
 	display: block;
 }

@@ -22,59 +22,60 @@
 
 	<br>
 	<br>
-<form action="/Comparison" method="POST">
-	<div class="vaihtoehdot">
-		<!--<ol>
+	<form action="/Comparison" method="POST">
+		<div class="vaihtoehdot">
+			<!--<ol>
 			<c:forEach var="questions" items="${requestScope.questionlist}"> -->
 			<p class="number">${questions.id}/${questionlist.size()}</p>
 			<div class="question">${questions.question}
 				<br>
 			</div>
-			
+
 			<div class="radiogrp">
 				<input type="radio" name="answer${questions.id}" value="option1"
-					id="radio_1" required> <label for="radio_1">Strongly
+					id="radio_1" required><label for="radio_1">Strongly
 					Disagree </label>
 
 			</div>
 			<div class="radiogrp">
 				<input type="radio" name="answer${questions.id}" value="option2"
-					id="radio_2" required> <label for="radio_2">Somewhat
+					id="radio_2" required><label for="radio_2">Somewhat
 					Disagree </label>
 			</div>
 			<div class="radiogrp">
 				<input type="radio" name="answer${questions.id}" value="option3"
-					id="radio_3" required> <label for="radio_3"
+					id="radio_3" required><label for="radio_3"
 					style="transform: translateY(-25%);"><br>In between</label>
 			</div>
 			<div class="radiogrp">
 				<input type="radio" name="answer${questions.id}" value="option4"
-					id="radio_4" required> <label for="radio_4">Somewhat Agree </label>
+					id="radio_4" required><label for="radio_4">Somewhat
+					Agree </label>
 			</div>
 			<div class="radiogrp">
 				<input type="radio" name="answer${questions.id}" value="option5"
-					id="radio_5" required> <label for="radio_5">Strongly<br>Agree
+					id="radio_5" required><label for="radio_5">Strongly<br>Agree
 				</label>
 			</div>
-			
+
 			<!--</c:forEach>
 		</ol>-->
 
-	<button type="submit" class="button">Submit your answers</button>
+			<button type="submit" class="button">Submit your answers</button>
 
-	</div>
-</form>
-<%
-				@SuppressWarnings("unchecked")
-			ArrayList<Questions> questionlist = (ArrayList<Questions>) request.getAttribute("questionlist");
-			for (int i = 0; i < questionlist.size(); i++) {
-			%>
+		</div>
+	</form>
+	<%
+		@SuppressWarnings("unchecked")
+	ArrayList<Questions> questionlist = (ArrayList<Questions>) request.getAttribute("questionlist");
+	for (int i = 0; i < questionlist.size(); i++) {
+	%>
 
 
-			
 
-			<%
-				}
-			%>
+
+	<%
+		}
+	%>
 </body>
 </html>
