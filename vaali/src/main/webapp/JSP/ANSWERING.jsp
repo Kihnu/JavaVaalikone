@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href=questions.css>
+<link rel="stylesheet" href=CSS/questions.css>
 
 
 <title>Questions</title>
