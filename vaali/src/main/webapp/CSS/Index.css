@@ -5,21 +5,26 @@ body {
 }
 
 h1 {
+	font-family: helvetica;
 	position: relative;
 	text-align: center;
 	color: black;
-	font-size: 70px;
+	font-size: 60px;
+
 }
 
 form {
 	text-align: center;
+
 }
 
 button {
+	font-family: helvetica;
 	font-size: 30px;
 }
 
 .button {
+	font-family: helvetica;
 	border: none;
 	color: black;
 	background-color: orange;

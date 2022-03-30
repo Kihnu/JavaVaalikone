@@ -1,0 +1,28 @@
+@charset "ISO-8859-1";
+
+
+body {
+	background-color: #2e86c1;
+}
+
+h1 {
+	
+	font-family: helvetica;
+	position: relative;
+	text-align: center;
+	color: black;
+	font-size: 45px;
+
+	
+}
+
+div{
+	
+	
+	font-family: helvetica;
+	position: relative;
+	text-align: center;
+	color: black;
+	font-size: 30px;
+	
+}

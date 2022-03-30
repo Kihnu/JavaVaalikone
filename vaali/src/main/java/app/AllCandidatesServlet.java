@@ -1,11 +1,20 @@
 package app;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
+import data.Candidates;
+
+
+
 
 /**
  * Servlet implementation class AllCandidatesServlet
@@ -13,6 +22,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/AllCandidatesServlet")
 public class AllCandidatesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private DAO.Dao dao=null;
+	
+	public void init() {
+		dao=new DAO.Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "newuser", "salasana");
+	}
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -27,7 +42,32 @@ public class AllCandidatesServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("T‰‰ll‰ voisi selata ehdokkaita :)) ").append(request.getContextPath());
+		
+		
+		ArrayList<Candidates> list=null;
+		if (dao.getConnection()){
+			list=dao.readAllCandidates();
+		}
+		else {
+			System.out.println("No connection to database");
+		}
+		request.setAttribute("Candidates", list);
+		
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/AllCandidatesJSP.jsp");
+		rd.forward(request, response);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	/**
