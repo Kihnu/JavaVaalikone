@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.ArrayList" %> 
- <%@ page import="data.Candidates" %>    
+<%@ page import="data.Candidates" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 
 <!DOCTYPE html>
@@ -16,6 +16,7 @@
 <h1>All Candidates</h1>
 
 <form method ="get" action= "/SingleCandidate" >
+
 
 <%int i = 0; %>
 
