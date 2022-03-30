@@ -12,6 +12,12 @@
 
 	<br>
 
+	<form method="get" action="/index.html">
+		<button type="submit" class="button">Front Page</button>
+	</form>
+
+	<br>
+
 	<form method="get" action="/AdminQuestions">
 		<button type="submit" class="button">Edit Questions!</button>
 	</form>
@@ -21,11 +27,12 @@
 	<form method="get" action="/AdminCandidates">
 		<button type="submit" class="button">Edit Candidates!</button>
 	</form>
-	
+
 	<br>
 
 	<form method="get" action="/AdminRefresh">
-		<button style="background-color:red; color:white;" type="submit" class="button">Restart everything!</button>
+		<button style="background-color: red; color: white;" type="submit"
+			class="button">PANIC BUTTON!</button>
 	</form>
 
 </body>
