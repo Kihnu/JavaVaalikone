@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import app.Comparison;
+import data.Candidates;
+
 import data.Questions;
 import java.sql.Connection;
 
@@ -16,7 +18,7 @@ public class Dao {
 	private String pass;
 	private String url;
 	private Connection conn;
-	//private Comparison com;
+	// private Comparison com;
 
 	public Dao(String url, String user, String pass) {
 		this.url = url;
@@ -55,6 +57,31 @@ public class Dao {
 				q.setId(RS.getInt("question_id"));
 				q.setQuestion(RS.getString("question"));
 				list.add(q);
+			}
+			return list;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+
+	}
+
+	public ArrayList<Candidates> readAllCandidates() {
+		ArrayList<Candidates> list = new ArrayList<>();
+		try {
+
+			String sql = "";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			sql = "use vaalikone";
+			statement.executeUpdate(sql);
+			Statement stmt = conn.createStatement();
+			ResultSet RS = stmt.executeQuery("select * from candidates");
+			while (RS.next()) {
+				Candidates c = new Candidates();
+				c.setId(RS.getInt("candidate_id"));
+				c.setfirstname(RS.getString("firstname"));
+				c.setfirstname(RS.getString("surname"));
+				list.add(c);
 			}
 			return list;
 		} catch (SQLException e) {
