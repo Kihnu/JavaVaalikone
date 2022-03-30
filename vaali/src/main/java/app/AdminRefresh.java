@@ -114,48 +114,47 @@ public class AdminRefresh extends HttpServlet {
 				statement.executeUpdate(sql);
 				
 				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Goof\", \"G.G. Goofy\", 61, \"Socialist\", \"Comedian\", \"Why is anyone anywhere? What is the point of life? Are we all just puppets here for the entertainment of some greater intergalactic cosmic beign that plays with the lives and minds of the innocent? What was the question?\", \"I don't know, PlayStation 5 or something.\", 123);";
-				statement.executeUpdate(sql);
 				
 				rowsInserted = statement.executeUpdate(sql);
 				if (rowsInserted > 0) {
-					System.out.println("A candidates were updated successfully!");
+					System.out.println("Candidates were updated successfully!");
 				} else {
 					System.out.println("Nothing happened");
 				}
 				
-				sql = "INSERT INTO questions (question) VALUES ('Duckburg, Mouseville and Goosetown should all be combined into one big city.');";
+				sql = "INSERT INTO questions (question) VALUES (\"Duckburg, Mouseville and Goosetown should all be combined into one big city.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('The roads of Duckburg are in good condition.');";
+				sql = "INSERT INTO questions (question) VALUES (\"The roads of Duckburg are in good condition.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('The city of Duckburg should add more public transportation options.');";
+				sql = "INSERT INTO questions (question) VALUES (\"The city of Duckburg should add more public transportation options.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Duckburg needs more car repair shops.');";
+				sql = "INSERT INTO questions (question) VALUES (\"Duckburg needs more car repair shops.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('SAMPLE TEXT');";
+				sql = "INSERT INTO questions (question) VALUES (\"SAMPLE TEXT\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Fethry Duck is a menace to society.');";
+				sql = "INSERT INTO questions (question) VALUES (\"Fethry Duck is a menace to society.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Schools should adapt more to the distance education model.');";
+				sql = "INSERT INTO questions (question) VALUES (\"Schools should adapt more to the distance education model.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('We live in a society.');";
+				sql = "INSERT INTO questions (question) VALUES (\"We live in a society.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Scrooge McDucks Money Bin should be moved away from Duckburg.');";
+				sql = "INSERT INTO questions (question) VALUES (\"Scrooge McDuck's Money Bin should be moved away from Duckburg.\"); ";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('I dont agree with this statement.');";
+				sql = "INSERT INTO questions (question) VALUES (\"I don't agree with this statement.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Somebody once told me the world is gonna roll me.');";
+				sql = "INSERT INTO questions (question) VALUES (\"Somebody once told me the world is gonna roll me.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Duckburg has too many ducks.');";
+				sql = "INSERT INTO questions (question) VALUES (\"Duckburg has too many ducks.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Every job in Duckburg should be automated.');";
+				sql = "INSERT INTO questions (question) VALUES (\"Every job in Duckburg should be automated.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('The ducks and other birdlike citizens of Duckberg should be able to fly.');";
+				sql = "INSERT INTO questions (question) VALUES (\"The ducks and other birdlike citizens of Duckberg should be able to fly.\");";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Dark chocolate is better than white chocolate.');";
+				sql = "INSERT INTO questions (question) VALUES (\"Dark chocolate is better than white chocolate.\");";
 
 				rowsInserted = statement.executeUpdate(sql);
 				if (rowsInserted > 0) {
-					System.out.println("A questions were updated successfully!");
+					System.out.println("Questions were updated successfully!");
 				} else {
 					System.out.println("Nothing happened");
 				}
