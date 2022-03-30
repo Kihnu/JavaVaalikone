@@ -149,7 +149,7 @@ public class AdminRefresh extends HttpServlet {
 
 		request.setAttribute("questionlist", list);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/questions.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Admin");
 		rd.forward(request, response);
 	}
 
