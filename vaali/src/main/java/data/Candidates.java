@@ -26,22 +26,22 @@ public class Candidates {
 			this.id = Integer.parseInt(id);
 		}
 		catch(NumberFormatException | NullPointerException e) {
-			
+			System.out.println(e.getMessage());
 		}
 	}
 	public String getfirstname() {
 		return firstname;
 	}
-	public void setfirstname(String question) {
-		this.firstname = question;
+	public void setfirstname(String firstname) {
+		this.firstname = firstname;
 		
 	}
 	public String getsurname() {
 		
 		return surname;
 	}
-	public void setsurname(String question) {
-		this.surname = question;
+	public void setsurname(String surname) {
+		this.surname = surname;
 		
 	}
 	

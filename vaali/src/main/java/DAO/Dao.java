@@ -70,17 +70,14 @@ public class Dao {
 		ArrayList<Candidates> list = new ArrayList<>();
 		try {
 
-			String sql = "";
-			PreparedStatement statement = conn.prepareStatement(sql);
-			sql = "use vaalikone";
-			statement.executeUpdate(sql);
+		
 			Statement stmt = conn.createStatement();
 			ResultSet RS = stmt.executeQuery("select * from candidates");
 			while (RS.next()) {
 				Candidates c = new Candidates();
 				c.setId(RS.getInt("candidate_id"));
 				c.setfirstname(RS.getString("firstname"));
-				c.setfirstname(RS.getString("surname"));
+				c.setsurname(RS.getString("surname"));
 				list.add(c);
 			}
 			return list;
@@ -90,6 +87,7 @@ public class Dao {
 		}
 
 	}
+	
 
 //	public ArrayList<UserAnswer> userAnswer() {
 //		ArrayList<UserAnswer> list = new ArrayList<>();

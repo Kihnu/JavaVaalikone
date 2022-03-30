@@ -2,27 +2,48 @@
     pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.ArrayList" %> 
- <%@ page import="data.Candidates" %>    
+<%@ page import="data.Candidates" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href=CSS/Allcandidates.css>
 <title>All Candidates</title>
 </head>
 <body>
 <h1>All Candidates</h1>
 
-<%
-ArrayList<Candidates> Candidates=(ArrayList<Candidates>)request.getAttribute("Candidates");
+<form method ="get" action= "/SingleCandidate" >
 
-for (int i=0;Candidates!=null && i<Candidates.size();i++){
-	Candidates c=Candidates.get(i);
-	
-	
-	out.println(c.getId()+c.getId()+c.getfirstname()+ c.getsurname());
-}
-%>
+
+<%int i = 0; %>
+
+
+<table class="allcandidates" >
+
+
+<c:forEach var="candidates" items="${requestScope.Candidates}">
+<tr>
+<td>
+
+${candidates.firstname} ${candidates.surname}
+ <Br>
+ <button name="info<%=i%>" type="submit">
+      More information 
+    </button>
+<br>
+<br>
+</td>
+</tr>
+
+<%i++;%>
+</c:forEach>
+
+
+</table>
+
+</form>
 </body>
 </html>

@@ -44,6 +44,7 @@ public class AdminRefresh extends HttpServlet {
 			throws ServletException, IOException {
 
 		ArrayList<Questions> list = null;
+		int rowsInserted;
 
 		if (dao.getConnection()) {
 			
@@ -69,7 +70,6 @@ public class AdminRefresh extends HttpServlet {
 				statement.executeUpdate(sql);
 
 				sql = "use Vaalikone;"; // Joo
-				System.out.println(sql);
 				statement.executeUpdate(sql);
 
 				sql = "CREATE TABLE candidates (candidate_id int(3) NOT NULL AUTO_INCREMENT, surname varchar(30) NOT NULL, "
@@ -86,52 +86,75 @@ public class AdminRefresh extends HttpServlet {
 				statement.executeUpdate(sql);
 
 				// TESTI
-				sql = "INSERT INTO candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES ('aku', 'ankka', 1, 'pomo', 'homo', 'muute vaa', 'jotai', 313)";
-
-				sql = "INSERT INTO questions (question) VALUES ('Duckburg, Mouseville and Goosetown should all be combined into one big city.');";
+				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Duck\", \"Donald\", 36, \"Socialist\", \"Rubber bread\", \"In my opinion the amount of work an anthropomorphic animal has to do just to live their life normally is way too much.\", \"Something to occupy my feeble mind while I try to avoid working as much as I can.\", 313);";
 				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('The roads of Duckburg are in good condition.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('The city of Duckburg should add more public transportation options.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Duckburg needs more car repair shops.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('SAMPLE TEXT');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Fethry Duck is a menace to society.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Schools should adapt more to the distance education model.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('We live in a society.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Scrooge McDucks Money Bin should be moved away from Duckburg.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('I dont agree with this statement.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Somebody once told me the world is gonna roll me.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Duckburg has too many ducks.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Every job in Duckburg should be automated.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('The ducks and other birdlike citizens of Duckberg should be able to fly.');";
-				statement.executeUpdate(sql);
-				sql = "INSERT INTO questions (question) VALUES ('Dark chocolate is better than white chocolate.');";
 				
-//				statement = conn.prepareStatement(sql);
-//				statement.setString(1, "Duck");
-//				statement.setString(2, "Donald");
-//				statement.setLong(3, 36);
-//				statement.setString(4, "Socialist");
-//				statement.setString(5, "Rubber Bread");
-//				statement.setString(6,
-//						"In my opinion the amount of work an anthropomorphic animal has to do just to live their life normally is way too much.");
-//				statement.setString(7, "Something to occupy my feeble mind while I try to avoid working as much as I can.");
-//				statement.setLong(8, 313);
-
-				int rowsInserted = statement.executeUpdate(sql);
+				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"McDuck\", \"Scrooge\", 75, \"Indepentend\", \"Business magnate\", \"I need money\", \"Money\", 112);";
+				statement.executeUpdate(sql);
+				
+				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Gander\", \"Gladstone\", 38, \"Republican\", \"\", \"I just take part of every competition I can find, I'm so lucky that if I win, I win, and if I lose, I know I dodged a bullet, so it's always a win-win situation for me.\", \"It doesn't matter if I win, as long as Donald (Duck) loses.\", 777);";
+				statement.executeUpdate(sql);
+				
+				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Duck\", \"Daisy\", 35, \"Enviromentalist\", \"TV Reporter\", \"Someone needs to do something about the flowers in the middle of the park, they are dying!\", \"My promise is to fix the flowers and then I'll probably resign.\", 666);";
+				statement.executeUpdate(sql);
+				
+				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Gearloose\", \"Gyro\", 50, \"Libertarian\", \"Inventor\", \"My inventions will bring a new brighter future for everyone in Duckburg.\", \"To make the living conditions of your every day citizens easier and more stress free. To automate most of the working places, so that people can roam free daily without selling their souls to faceless corporations.\", 314);";
+				statement.executeUpdate(sql);
+				
+				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Mouse\", \"Mickey\", 47, \"Socialist\", \"Jack-of-all-trades\", \"I am the most reliable person you will ever meet!\", \"I want to be part of recreating the glory of Duckburg that I remember we had when I was just a wee lad.\", 420);";
+				statement.executeUpdate(sql);
+				
+				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Mouse\", \"Minnie\", 47, \"Republican\", \"Barmaid\", \"I feel like no one else gets things done. No one gets things done better than I do, go ask anyone. Ask me for example.\", \"Make Duckburg Great Again\", 137);";
+				statement.executeUpdate(sql);
+				
+				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Pluto\", \"\", 8, \"Anarchist\", \"Dog\", \"woof\", \"woof woof\", 100);";
+				statement.executeUpdate(sql);
+				
+				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Duck\", \"Huey, Dewey and Louie\", 11, \"Pirate Party\", \"3 children in a trenchcoat\", \"We... I mean, I feel like schools give too much homework for us... I mean, the children, and also recess is way too short, it should be over 1 hour long.\", \"Free candy for every children in Duckburg and never having to go to school again!\", 333);";
+				statement.executeUpdate(sql);
+				
+				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Goof\", \"G.G. Goofy\", 61, \"Socialist\", \"Comedian\", \"Why is anyone anywhere? What is the point of life? Are we all just puppets here for the entertainment of some greater intergalactic cosmic beign that plays with the lives and minds of the innocent? What was the question?\", \"I don't know, PlayStation 5 or something.\", 123);";
+				
+				rowsInserted = statement.executeUpdate(sql);
 				if (rowsInserted > 0) {
-					System.out.println("A questions were updated successfully!");
+					System.out.println("Candidates were updated successfully!");
+				} else {
+					System.out.println("Nothing happened");
+				}
+				
+				sql = "INSERT INTO questions (question) VALUES (\"Duckburg, Mouseville and Goosetown should all be combined into one big city.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"The roads of Duckburg are in good condition.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"The city of Duckburg should add more public transportation options.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"Duckburg needs more car repair shops.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"SAMPLE TEXT\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"Fethry Duck is a menace to society.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"Schools should adapt more to the distance education model.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"We live in a society.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"Scrooge McDuck's Money Bin should be moved away from Duckburg.\"); ";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"I don't agree with this statement.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"Somebody once told me the world is gonna roll me.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"Duckburg has too many ducks.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"Every job in Duckburg should be automated.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"The ducks and other birdlike citizens of Duckberg should be able to fly.\");";
+				statement.executeUpdate(sql);
+				sql = "INSERT INTO questions (question) VALUES (\"Dark chocolate is better than white chocolate.\");";
+
+				rowsInserted = statement.executeUpdate(sql);
+				if (rowsInserted > 0) {
+					System.out.println("Questions were updated successfully!");
 				} else {
 					System.out.println("Nothing happened");
 				}
@@ -149,7 +172,7 @@ public class AdminRefresh extends HttpServlet {
 
 		request.setAttribute("questionlist", list);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/questions.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/AdminMain");
 		rd.forward(request, response);
 	}
 
