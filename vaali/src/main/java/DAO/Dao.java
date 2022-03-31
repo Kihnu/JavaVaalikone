@@ -14,6 +14,7 @@ import data.Candidates;
 import data.Questions;
 import java.sql.Connection;
 
+
 public class Dao {
 	private String user;
 	private String pass;
@@ -95,6 +96,7 @@ public class Dao {
 		}
 
 	}
+
 	
 	public Candidates readCertainCandidate(String id) {
 		Candidates c = null;
@@ -144,6 +146,7 @@ public class Dao {
 
 	}
 	
+
 
 //	public ArrayList<UserAnswer> userAnswer() {
 //		ArrayList<UserAnswer> list = new ArrayList<>();
