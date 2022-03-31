@@ -7,14 +7,14 @@ body {
 
 h1 {
 font-family: helvetica;
-position: relative;
+
 text-align: center;
 color: black;
 font-size: 60px;
 	
 }
 
-table
+.allcandidates
 {
 
 font-family: helvetica;
@@ -25,7 +25,53 @@ margin-right: auto;
 
 text-align: center;
 color: black;
-font-size: 40px;
-	
+font-size: 30px;
+}
 
+h2
+{
+	font-size: 40px;
+	
+}
+
+solid {
+	border-top: 3px solid #bbb;
+}
+
+
+.infobutton {
+	font-family: helvetica;
+	border: none;
+	color: black;
+	background-color: orange;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.exitbutton
+{
+	font-family: helvetica;
+	border: none;
+	color: black;
+	background-color: orange;
+	padding: 10px 15px;
+	
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+
+button:hover {
+	background-color: #d35400;
+	color: white;
 }
