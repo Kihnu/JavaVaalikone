@@ -20,15 +20,17 @@
 
 		<%
 			int i = 0;
+			int j = 0;
 		%>
 
-
+		
 		<table class="allcandidates">
-
+			
 
 			<c:forEach var="candidates" items="${requestScope.Candidates}">
 				<tr>
 					<td>${candidates.firstname} ${candidates.surname} <Br>
+						<img src="/images/kuva<%=j+1%>.png">
 						<button name="info<%=i%>" type="submit">More information
 						</button> <br> <br>
 					</td>
@@ -36,6 +38,7 @@
 
 				<%
 					i++;
+					j++;
 				%>
 			</c:forEach>
 
