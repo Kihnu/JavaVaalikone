@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.Dao;
 import data.Candidates;
 
 
@@ -25,7 +26,15 @@ public class AllCandidatesServlet extends HttpServlet {
 	
 	public void init() {
 
-		dao=new DAO.Dao("jdbc:mysql://localhost:3306/vaalikone", "user", "password");
+		// connection_url_admin = jdbc:mysql://localhost:3306
+		// connection_url = jdbc:mysql://localhost:3306/vaalikone
+		String url = getServletContext().getInitParameter("connection_url");
+		String user = getServletContext().getInitParameter("username");
+		String password = getServletContext().getInitParameter("passwd");
+		
+		dao = new Dao(url, user, password);
+
+		// dao=new DAO.Dao("jdbc:mysql://localhost:3306/vaalikone", "user", "password");
 	}
 	
        
