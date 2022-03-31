@@ -24,8 +24,8 @@ public class AllCandidatesServlet extends HttpServlet {
 	private DAO.Dao dao=null;
 	
 	public void init() {
-		// dao=new DAO.Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "user", "password");
-		dao=new DAO.Dao("jdbc:mysql://localhost:3306/vaalikone?useSSL=false", "newuser", "salasana");
+
+		dao=new DAO.Dao("jdbc:mysql://localhost:3306/vaalikone", "user", "password");
 	}
 	
        

@@ -43,7 +43,7 @@ public class AdminCandidates extends HttpServlet {
 		else {
 			System.out.println("No connection to database");
 		}
-		request.setAttribute("candidatesList", candidates);
+		request.setAttribute("candidates", candidates);
 		
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/EditCandidates.jsp");
 		rd.forward(request, response);
