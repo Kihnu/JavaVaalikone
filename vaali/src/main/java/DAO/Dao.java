@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import app.Comparison;
+import data.AnswersC;
 import data.Candidates;
 
 import data.Questions;
@@ -70,14 +71,22 @@ public class Dao {
 	public ArrayList<Candidates> readAllCandidates() {
 		ArrayList<Candidates> list = new ArrayList<>();
 		try {
-
 			Statement stmt = conn.createStatement();
+			String sql = "";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			sql = "use vaalikone";
+			statement.executeUpdate(sql);
 			ResultSet RS = stmt.executeQuery("select * from candidates");
 			while (RS.next()) {
 				Candidates c = new Candidates();
 				c.setId(RS.getInt("candidate_id"));
 				c.setfirstname(RS.getString("firstname"));
 				c.setsurname(RS.getString("surname"));
+				c.setParty(RS.getString("party"));
+				c.setAge(RS.getInt("age"));
+				c.setWhat(RS.getString("what"));
+				c.setWhy(RS.getString("why"));
+				c.setVote_nro(RS.getInt("vote_nro"));
 				list.add(c);
 			}
 			return list;
@@ -87,6 +96,57 @@ public class Dao {
 		}
 
 	}
+
+	
+	public Candidates readCertainCandidate(String id) {
+		Candidates c = null;
+		try {
+			Statement stmt = conn.createStatement();
+			String sql = "use vaalikone;";
+			stmt.executeUpdate(sql);
+			sql = "select * from candidates where candidate_id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet RS=pstmt.executeQuery();
+			while (RS.next()) {
+				c = new Candidates();
+				c.setId(RS.getInt("candidate_id"));
+				c.setfirstname(RS.getString("firstname"));
+				c.setsurname(RS.getString("surname"));
+				c.setParty(RS.getString("party"));
+				c.setAge(RS.getInt("age"));
+				c.setWhat(RS.getString("what"));
+				c.setWhy(RS.getString("why"));
+				c.setVote_nro(RS.getInt("vote_nro"));
+			}
+			return c;
+	
+	public ArrayList<AnswersC> readAllAnswersC() {
+		ArrayList<AnswersC> list = new ArrayList<>();
+		try {
+
+		
+			Statement stmt = conn.createStatement();
+			ResultSet RS = stmt.executeQuery("select * from answers");
+			while (RS.next()) {
+			AnswersC a = new AnswersC();
+				a.setId(RS.getInt("answer_id"));
+				a.setCandidateId(RS.getInt("candidate_id"));
+				a.setQuestionId(RS.getInt("question_id"));
+				a.setanswerint(RS.getInt("answer_int"));
+				a.setanswerstring(RS.getString("answer_string"));
+				
+				list.add(a);
+			}
+			return list;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+
+	}
+	
+
 
 //	public ArrayList<UserAnswer> userAnswer() {
 //		ArrayList<UserAnswer> list = new ArrayList<>();
