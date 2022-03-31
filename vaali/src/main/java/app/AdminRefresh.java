@@ -82,6 +82,13 @@ public class AdminRefresh extends HttpServlet {
 						+ "firstname varchar(30), age int(3), party varchar(30) NOT NULL, profession varchar(60), why varchar(600), "
 						+ "what varchar(600), vote_nro int(4) NOT NULL, PRIMARY KEY (candidate_id, vote_nro));";
 				statement.executeUpdate(sql);
+				
+//				// Kuva sarake lis‰‰minen
+//				sql = "CREATE TABLE candidates (candidate_id int(3) NOT NULL AUTO_INCREMENT, surname varchar(30) NOT NULL, "
+//						+ "firstname varchar(30), age int(3), party varchar(30) NOT NULL, profession varchar(60), why varchar(600), "
+//						+ "what varchar(600), vote_nro int(4) NOT NULL, PRIMARY KEY (candidate_id, vote_nro), kuva_id longblob NOT NULL);";
+//				statement.executeUpdate(sql);
+				
 				sql = "CREATE TABLE questions (question_id int(3) NOT NULL AUTO_INCREMENT, question varchar(600) NOT NULL, "
 						+ "PRIMARY KEY (question_id));";
 				statement.executeUpdate(sql);

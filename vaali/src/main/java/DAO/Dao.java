@@ -13,6 +13,7 @@ import data.Candidates;
 import data.Questions;
 import java.sql.Connection;
 
+
 public class Dao {
 	private String user;
 	private String pass;
@@ -70,7 +71,6 @@ public class Dao {
 		ArrayList<Candidates> list = new ArrayList<>();
 		try {
 
-		
 			Statement stmt = conn.createStatement();
 			ResultSet RS = stmt.executeQuery("select * from candidates");
 			while (RS.next()) {
@@ -87,7 +87,6 @@ public class Dao {
 		}
 
 	}
-	
 
 //	public ArrayList<UserAnswer> userAnswer() {
 //		ArrayList<UserAnswer> list = new ArrayList<>();
