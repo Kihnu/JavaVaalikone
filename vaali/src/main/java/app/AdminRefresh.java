@@ -25,11 +25,15 @@ import data.Questions;
 @WebServlet("/AdminRefresh")
 public class AdminRefresh extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Dao dao;
+	private Dao dao=null;
 
 	@Override
 	public void init() {
-		dao = new Dao("jdbc:mysql://localhost:3306/", "user", "password");
+		String url = getServletContext().getInitParameter("connection_url_admin");
+		String user = getServletContext().getInitParameter("username");
+		String password = getServletContext().getInitParameter("passwd");
+		
+		dao = new Dao(url, user, password);
 	}
 
 	public AdminRefresh() {
