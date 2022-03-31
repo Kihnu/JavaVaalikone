@@ -69,15 +69,22 @@ public class Dao {
 	public ArrayList<Candidates> readAllCandidates() {
 		ArrayList<Candidates> list = new ArrayList<>();
 		try {
-
-		
 			Statement stmt = conn.createStatement();
+			String sql = "";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			sql = "use vaalikone";
+			statement.executeUpdate(sql);
 			ResultSet RS = stmt.executeQuery("select * from candidates");
 			while (RS.next()) {
 				Candidates c = new Candidates();
 				c.setId(RS.getInt("candidate_id"));
 				c.setfirstname(RS.getString("firstname"));
 				c.setsurname(RS.getString("surname"));
+				c.setParty(RS.getString("party"));
+				c.setAge(RS.getInt("age"));
+				c.setWhat(RS.getString("what"));
+				c.setWhy(RS.getString("why"));
+				c.setVote_nro(RS.getInt("vote_nro"));
 				list.add(c);
 			}
 			return list;

@@ -26,6 +26,8 @@ margin-right: auto;
 text-align: center;
 color: black;
 font-size: 40px;
-	
+}
 
+solid {
+	border-top: 3px solid #bbb;
 }
