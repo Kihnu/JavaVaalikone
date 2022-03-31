@@ -169,6 +169,13 @@ public class AdminRefresh extends HttpServlet {
 				statement.executeUpdate(sql);
 				sql = "INSERT INTO questions (question) VALUES (\"Dark chocolate is better than white chocolate.\");";
 
+				rowsInserted = statement.executeUpdate(sql);
+				if (rowsInserted > 0) {
+					System.out.println("Questions were updated successfully!");
+				} else {
+					System.out.println("Nothing happened");
+				}
+				
 				// Answers lisäys
 				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 1, 2); ";
 				statement.executeUpdate(sql);
@@ -491,7 +498,7 @@ public class AdminRefresh extends HttpServlet {
 				
 				rowsInserted = statement.executeUpdate(sql);
 				if (rowsInserted > 0) {
-					System.out.println("Questions were updated successfully!");
+					System.out.println("Answers were updated successfully!");
 				} else {
 					System.out.println("Nothing happened");
 				}
