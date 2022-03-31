@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import app.Comparison;
+import data.AnswersC;
 import data.Candidates;
 
 import data.Questions;
@@ -79,6 +80,32 @@ public class Dao {
 				c.setfirstname(RS.getString("firstname"));
 				c.setsurname(RS.getString("surname"));
 				list.add(c);
+			}
+			return list;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+
+	}
+	
+	
+	public ArrayList<AnswersC> readAllAnswersC() {
+		ArrayList<AnswersC> list = new ArrayList<>();
+		try {
+
+		
+			Statement stmt = conn.createStatement();
+			ResultSet RS = stmt.executeQuery("select * from answers");
+			while (RS.next()) {
+			AnswersC a = new AnswersC();
+				a.setId(RS.getInt("answer_id"));
+				a.setCandidateId(RS.getInt("candidate_id"));
+				a.setQuestionId(RS.getInt("question_id"));
+				a.setanswerint(RS.getInt("answer_int"));
+				a.setanswerstring(RS.getString("answer_string"));
+				
+				list.add(a);
 			}
 			return list;
 		} catch (SQLException e) {
