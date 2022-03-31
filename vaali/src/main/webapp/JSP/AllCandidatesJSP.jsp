@@ -13,7 +13,15 @@
 <title>All Candidates</title>
 </head>
 <body>
+
+
+<form method="get" action="/index.html">
+	<button type="submit" class= exitbutton>To main page </button>
+	</form>
 	<h1>All Candidates</h1>
+	
+	
+	
 
 	<form method="get" action="/SingleCandidate">
 
@@ -28,10 +36,24 @@
 
 			<c:forEach var="candidates" items="${requestScope.Candidates}">
 				<tr>
-					<td>${candidates.firstname} ${candidates.surname} <Br>
-						<button name="info<%=i%>" type="submit">More information
-						</button> <br> <br>
+					<td>
+					
+				
+				
+				<h2>${candidates.firstname} ${candidates.surname} </h2>
+				<Br>
+					
+					
+					Election number: ${candidates.vote_nro} <Br>
+					Party: ${candidates.party}
+				
+				
+					<Br>
+					<Br>
+						<button class= infobutton name="info<%=i%>" type="submit">More information
+						</button> <br> <br> <br> 
 					</td>
+				
 				</tr>
 
 				<%
