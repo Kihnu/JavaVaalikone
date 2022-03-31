@@ -18,6 +18,12 @@
 </head>
 <body>
 
+
+<form method="get" action="/index.html">
+	<button type="submit" class= exitbutton>To main page </button>
+	</form>
+
+
 	<h2>Questions</h2>
 
 	<br>
