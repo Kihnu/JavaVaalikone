@@ -6,18 +6,17 @@
 <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
-	<form action="/Edit" method="POST">
-	
-			<p class="number">${candidatesList.id}/${candidatesList.size()}</p>
-			<div class="firstname">${candidatesList.firstname}
+	<form action="/EditCandidate" method="POST">
+		<c:forEach var="candidates" items="${requestScope.candidates}">
+			<div class="firstname">${candidates.firstname}
 				<br>
 			</div>
-			<div class="surname">${candidatesList.surname}
+			<div class="surname">${candidates.surname}
 				<br>
 			</div>
 
 			<button type="submit" class="button">Edit</button>
-
+		</c:forEach>
 	</form>
 </body>
 </html>

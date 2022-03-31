@@ -57,7 +57,7 @@ public class AnsweringServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("questionlist", list);
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/ANSWERING.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/Answering.jsp");
 		rd.forward(request, response);
 		
 	}
