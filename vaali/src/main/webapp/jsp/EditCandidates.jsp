@@ -13,16 +13,21 @@
 <title>Edit Candidates</title>
 </head>
 <body>
-	<form action="/EditCandidate" method="POST">
+
 		<c:forEach var="candidates" items="${requestScope.candidates}">
-			<div class="name">${candidates.id} ${candidates.firstname} ${candidates.surname}
-			</div>
+			<div class="id">${candidates.id}</div>
+			<div class="firstname">${candidates.firstname}</div>
+			<div class="surname">${candidates.surname}</div>
 			<br>
-			<div class="extra">Age: ${candidates.age} <br> Party: ${candidates.party} <br>Voting number: ${candidates.vote_nro}</div>
-			<button name="edit${candidates.id}" type="submit" class="button">Edit</button>
+			<div class="age">Age: ${candidates.age}</div>
+			<br>
+			<div class="party">Party: ${candidates.party}</div>
+			<br>
+			<div class="number">Voting number: ${candidates.vote_nro}</div>
+
+			<a href="/EditCandidate?id=${candidates.id}">Edit candidate</a>
 			<br>
 			<hr class="solid">
 		</c:forEach>
-	</form>
 </body>
 </html>
