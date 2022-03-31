@@ -89,16 +89,19 @@ public class AdminRefresh extends HttpServlet {
 //						+ "what varchar(600), vote_nro int(4) NOT NULL, PRIMARY KEY (candidate_id, vote_nro), kuva_id longblob NOT NULL);";
 //				statement.executeUpdate(sql);
 				
+				// Quesiton tablen luonti
 				sql = "CREATE TABLE questions (question_id int(3) NOT NULL AUTO_INCREMENT, question varchar(600) NOT NULL, "
 						+ "PRIMARY KEY (question_id));";
 				statement.executeUpdate(sql);
+				
+				//Vastaus tablen luonti
 				sql = "CREATE TABLE answers (answer_id int(5) NOT NULL AUTO_INCREMENT, candidate_id int(3) NOT NULL, "
 						+ "question_id int(3) NOT NULL, answer_int int(1) NOT NULL, answer_string varchar(600), PRIMARY KEY (answer_id), "
 						+ "FOREIGN KEY (candidate_id) REFERENCES candidates (candidate_id), FOREIGN KEY (question_id) "
 						+ "REFERENCES questions (question_id));";
 				statement.executeUpdate(sql);
 
-				// TESTI
+				// Candidates lisäys
 				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Duck\", \"Donald\", 36, \"Socialist\", \"Rubber bread\", \"In my opinion the amount of work an anthropomorphic animal has to do just to live their life normally is way too much.\", \"Something to occupy my feeble mind while I try to avoid working as much as I can.\", 313);";
 				statement.executeUpdate(sql);
 				
@@ -135,6 +138,7 @@ public class AdminRefresh extends HttpServlet {
 					System.out.println("Nothing happened");
 				}
 				
+				// Kysymysten lisäys
 				sql = "INSERT INTO questions (question) VALUES (\"Duckburg, Mouseville and Goosetown should all be combined into one big city.\");";
 				statement.executeUpdate(sql);
 				sql = "INSERT INTO questions (question) VALUES (\"The roads of Duckburg are in good condition.\");";
@@ -168,6 +172,333 @@ public class AdminRefresh extends HttpServlet {
 				rowsInserted = statement.executeUpdate(sql);
 				if (rowsInserted > 0) {
 					System.out.println("Questions were updated successfully!");
+				} else {
+					System.out.println("Nothing happened");
+				}
+				
+				// Answers lisäys
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 1, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 2, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 3, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 4, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 5, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 6, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 7, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 8, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 9, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 10, 3); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 11, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 12, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 13, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 14, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 15, 2); ";
+				statement.executeUpdate(sql);
+				// 15 vastausta
+				
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 1, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 2, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 3, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 4, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 5, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 6, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 7, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 8, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 9, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 10, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 11, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 12, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 13, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 14, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(2, 15, 2); ";
+				statement.executeUpdate(sql);
+				// 30 vastusta
+				
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 1, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 2, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 3, 3); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 4, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 5, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 6, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 7, 3); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 8, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 9, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 10, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 11, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 12, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 13, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 14, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(3, 15, 1); ";
+				statement.executeUpdate(sql);
+				// 45 vastausta
+				
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 1, 3); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 2, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 4, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 5, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 6, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 7, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 8, 3); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 9, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 10, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 11, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 12, 3); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 13, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 14, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(4, 15, 3); ";
+				statement.executeUpdate(sql);
+				// 60 vastausta
+				
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 1, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 2, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 3, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 4, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 5, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 6, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 7, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 8, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 9, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 10, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 11, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 12, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 13, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 14, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(5, 15, 2); ";
+				statement.executeUpdate(sql);
+				// 75 vastausta
+				
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 1, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 2, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 3, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 4, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 5, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 6, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 7, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 8, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 9, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 10, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 11, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 12, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 13, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 14, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(6, 15, 2); ";
+				statement.executeUpdate(sql);
+				// 90 vastausta
+				
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 1, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 2, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 3, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 4, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 5, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 6, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 7, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 8, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 9, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 10, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 11, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 12, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 13, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 14, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(7, 15, 2); ";
+				statement.executeUpdate(sql);
+				// 105 vastausta
+				
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 1, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 2, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 3, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 4, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 5, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 6, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 7, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 8, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 9, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 10, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 11, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 12, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 13, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 14, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(8, 15, 2); ";
+				statement.executeUpdate(sql);
+				// 120 vastausta
+				
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 1, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 2, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 3, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 4, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 5, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 6, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 7, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 8, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 9, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 10, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 11, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 12, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 13, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 14, 5); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(9, 15, 5); ";
+				statement.executeUpdate(sql);
+				// 135 vastausta
+				
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 1, 4); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 2, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 3, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 4, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 5, 3); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 6, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 7, 3); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 8, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 9, 1); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 10, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 11, 3); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 12, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 13, 2); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 14, 3); ";
+				statement.executeUpdate(sql);
+				sql="INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(10, 15, 5); ";
+				statement.executeUpdate(sql);
+				// 150 vastausta
+				
+				
+				rowsInserted = statement.executeUpdate(sql);
+				if (rowsInserted > 0) {
+					System.out.println("Answers were updated successfully!");
 				} else {
 					System.out.println("Nothing happened");
 				}
