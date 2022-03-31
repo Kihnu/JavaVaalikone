@@ -18,7 +18,7 @@
 <form method ="get" action= "/SingleCandidate" >
 
 
-<%int i = 0; %>
+<%int i = 0; int j= 1; %>
 
 
 <table class="allcandidates" >
@@ -27,8 +27,9 @@
 <c:forEach var="candidates" items="${requestScope.Candidates}">
 <tr>
 <td>
-
+<img src="/images/kuva<%=j%>.png">
 ${candidates.firstname} ${candidates.surname}
+
  <Br>
  <button name="info<%=i%>" type="submit">
       More information 
@@ -38,7 +39,7 @@ ${candidates.firstname} ${candidates.surname}
 </td>
 </tr>
 
-<%i++;%>
+<%i++; j++;%>
 </c:forEach>
 
 
