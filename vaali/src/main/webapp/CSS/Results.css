@@ -2,17 +2,18 @@
 
 
 body {
-	background-color: #2e86c1;
+	
+	background-color: #6cc5d5;
+	font-family: helvetica;
 }
 
 h1 {
-	
-	font-family: helvetica;
+font-family: helvetica;
 	position: relative;
 	text-align: center;
-	color: black;
-	font-size: 45px;
-
+	color: white;
+	font-size: 55px;
+	text-shadow: 5px 5px #000000;
 	
 }
 

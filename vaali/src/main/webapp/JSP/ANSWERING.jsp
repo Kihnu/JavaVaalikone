@@ -26,20 +26,22 @@
 
 	<h2>QUESTIONS</h2>
 
-	<br>
-	<br>
+	
+	
 	<form action="/Comparison" method="POST">
 		<div class="vaihtoehdot">
 			<!--<ol>
 			<c:forEach var="questions" items="${requestScope.questionlist}"> -->
 		
+		
+		<br><br>
 			<p class="number">${questions.id}/${questionlist.size()}</p>
 			
+			<br>
 		
 			<div class="question">${questions.question}
 				<br>
 					<br>
-				
 				
 			</div>
 
