@@ -147,6 +147,34 @@ public class Dao {
 		}
 
 	}
+	
+	public ArrayList<Integer> readCertainAnswersC(int id) {
+		ArrayList<Integer> list = new ArrayList<>();
+		try {
+			Statement stmt = conn.createStatement();
+			String sql = "use vaalikone;";
+			stmt.executeUpdate(sql);
+			sql = "select * from answers where candidate_id = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			ResultSet RS=pstmt.executeQuery();
+			while (RS.next()) {
+//				AnswersC a = new AnswersC();
+//				a.setId(RS.getInt("answer_id"));
+//				a.setCandidateId(RS.getInt("candidate_id"));
+//				a.setQuestionId(RS.getInt("question_id"));
+//				a.setanswerint(RS.getInt("answer_int"));
+//				a.setanswerstring(RS.getString("answer_string"));
+				list.add(RS.getInt("answer_int"));
+
+			}
+			return list;
+		} catch (SQLException e) {
+			System.out.println("Read some answers: " + e.getMessage());
+			return null;
+		}
+
+	}
 
 //	public ArrayList<UserAnswer> userAnswer() {
 //		ArrayList<UserAnswer> list = new ArrayList<>();
