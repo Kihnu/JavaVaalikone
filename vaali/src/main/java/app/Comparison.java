@@ -42,10 +42,7 @@ public class Comparison extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-
-		// ehdokkaiden vastaustietokanta
 
 	}
 
@@ -104,7 +101,7 @@ public class Comparison extends HttpServlet {
 		}
 		System.out.println("Kayttajan vastaukset: " + userlist);
 
-		// TÄHÄN PITÄÄ NYT TEHÄ SE VERTAILU MUT EMMIE VITTU JAKSA
+		// Tï¿½Hï¿½N PITï¿½ï¿½ NYT TEHï¿½ SE VERTAILU MUT EMMIE VITTU JAKSA
 		
 		// request.setAttribute("AnswersC", candidateanswers);
 		doGet(request, response);
