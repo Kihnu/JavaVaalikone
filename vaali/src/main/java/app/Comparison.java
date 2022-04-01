@@ -2,6 +2,7 @@ package app;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,7 +43,10 @@ public class Comparison extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		// ehdokkaiden vastaustietokanta
 
 	}
 
@@ -101,7 +105,37 @@ public class Comparison extends HttpServlet {
 		}
 		System.out.println("Kayttajan vastaukset: " + userlist);
 
-		// Tï¿½Hï¿½N PITï¿½ï¿½ NYT TEHï¿½ SE VERTAILU MUT EMMIE VITTU JAKSA
+		int user_num;
+		int candid_num;
+		int sum = 0;
+		int y = 0;
+		int z= 0;
+		
+		ArrayList<Integer> comparison = null;
+		
+		for (int x = 0; x < lists.size(); x++) {
+			comparison = new ArrayList<>();
+			candidatelist = lists.get(x);
+			for (y = 0; y < userlist.size(); y++ ) {
+				user_num = userlist.get(y);
+				candid_num = candidatelist.get(y);
+				int bigger = Math.max(user_num, candid_num);
+				int smaller = Math.min(user_num, candid_num);
+				int diff = bigger - smaller;
+				int percentage = diff * 25;
+				int comp = 100 - percentage;
+				comparison.add(comp);
+			}
+			for (z = 0; z < comparison.size(); z++) {
+				sum = sum + comparison.get(z);
+			}
+			System.out.println("SUMMA :" + sum);
+			int average = sum / comparison.size();
+			System.out.println("TÄMÄ ON TULOSSA DATABASEE: " + (x+1) + " - " + average + " %");
+			dao.addComparison(x+1, average);
+			sum = 0;
+		}
+		
 		
 		// request.setAttribute("AnswersC", candidateanswers);
 		doGet(request, response);

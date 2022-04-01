@@ -159,12 +159,6 @@ public class Dao {
 			pstmt.setInt(1, id);
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()) {
-//				AnswersC a = new AnswersC();
-//				a.setId(RS.getInt("answer_id"));
-//				a.setCandidateId(RS.getInt("candidate_id"));
-//				a.setQuestionId(RS.getInt("question_id"));
-//				a.setanswerint(RS.getInt("answer_int"));
-//				a.setanswerstring(RS.getString("answer_string"));
 				list.add(RS.getInt("answer_int"));
 
 			}
@@ -174,6 +168,23 @@ public class Dao {
 			return null;
 		}
 
+	}
+
+	public ArrayList<Integer> addComparison(int candidate, int average) {
+		ArrayList<Integer> list = new ArrayList<>();
+		try {
+			Statement stmt = conn.createStatement();
+			String sql = "use vaalikone;";
+			stmt.executeUpdate(sql);
+			sql = "update comparison set average = " + average + " where candidate_id = " + candidate + ";";
+			stmt.executeUpdate(sql);
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+				return null;
+			}
+		return list;
+		
+		
 	}
 
 //	public ArrayList<UserAnswer> userAnswer() {

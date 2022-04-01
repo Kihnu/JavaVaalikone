@@ -103,7 +103,11 @@ public class AdminRefresh extends HttpServlet {
 						+ "FOREIGN KEY (candidate_id) REFERENCES candidates (candidate_id), FOREIGN KEY (question_id) "
 						+ "REFERENCES questions (question_id));";
 				statement.executeUpdate(sql);
-
+				
+				// Vertailu tablen luonti
+				sql = "CREATE TABLE comparison (comp_id int(5) NOT NULL AUTO_INCREMENT, candidate_id int(3) NOT NULL, average int(3) NOT NULL, PRIMARY KEY (comp_id));"; 
+				statement.executeUpdate(sql);
+				
 				// Candidates lisäys
 				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Duck\", \"Donald\", 36, \"Socialist\", \"Rubber bread\", \"In my opinion the amount of work an anthropomorphic animal has to do just to live their life normally is way too much.\", \"Something to occupy my feeble mind while I try to avoid working as much as I can.\", 313);";
 				statement.executeUpdate(sql);
@@ -198,6 +202,12 @@ public class AdminRefresh extends HttpServlet {
 						}
 						
 					}
+				}
+				
+				
+				for (cand = 1; cand < candidatesList.size()+1; cand++) {
+					sql = "INSERT INTO comparison (candidate_id, average) VALUES (" + cand + ", 0)";
+					statement.executeUpdate(sql);
 				}
 
 //				sql = "INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 1, 2); ";
