@@ -179,6 +179,8 @@ public class AdminRefresh extends HttpServlet {
 					System.out.println("Nothing happened");
 				}
 				
+				
+				// Answers lisäys
 				Random rand = new Random();
 				questionsList = dao.readAllQuestions();
 				candidatesList = dao.readAllCandidates();
@@ -198,8 +200,6 @@ public class AdminRefresh extends HttpServlet {
 					}
 				}
 
-
-//				// Answers lisäys
 //				sql = "INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 1, 2); ";
 //				statement.executeUpdate(sql);
 //				sql = "INSERT INTO ANSWERS (CANDIDATE_ID, QUESTION_ID,ANSWER_INT) VALUES(1, 2, 4); ";
