@@ -44,7 +44,7 @@ public class Comparison extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		
 		
 		// ehdokkaiden vastaustietokanta
@@ -57,6 +57,10 @@ public class Comparison extends HttpServlet {
 			System.out.println("No connection to database");
 		}
 		request.setAttribute("AnswersC", list);
+		
+		
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/results.jsp");
+		rd.forward(request, response);
 		
 	
 	}
