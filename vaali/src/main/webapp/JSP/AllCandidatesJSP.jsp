@@ -18,6 +18,9 @@
 <form method="get" action="/index.html">
 	<button type="submit" class= exitbutton>To main page </button>
 	</form>
+	<Br>
+	<Br>
+	
 	<h1>All Candidates</h1>
 	
 	
@@ -41,7 +44,7 @@
 				
 				
 				<h2>${candidates.firstname} ${candidates.surname} </h2>
-				<Br>
+				
 					<img src="/images/kuva<%=j%>.png"> <Br>
 					
 					Election number: ${candidates.vote_nro} <Br>
