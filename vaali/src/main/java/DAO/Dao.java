@@ -61,7 +61,7 @@ public class Dao {
 			}
 			return list;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Read all questions: " + e.getMessage());
 			return null;
 		}
 
@@ -90,7 +90,7 @@ public class Dao {
 			}
 			return list;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Read all candidates: " + e.getMessage());
 			return null;
 		}
 
@@ -119,7 +119,7 @@ public class Dao {
 			}
 			return c;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Read certain candidates: " + e.getMessage());
 			return null;
 		}
 	}
@@ -142,7 +142,7 @@ public class Dao {
 			}
 			return list;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Read all answers C: " + e.getMessage());
 			return null;
 		}
 
