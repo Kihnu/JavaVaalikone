@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<form method="get" action="/AdminMain">
+	<form action="http://localhost:8080/AdminMain?">
 		<button type="submit" class=exitbutton>To Admin Page</button>
 	</form>
 	
