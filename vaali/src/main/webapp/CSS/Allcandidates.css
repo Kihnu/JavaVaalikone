@@ -2,15 +2,19 @@
 
 
 body {
-	background-color: #2e86c1;
+	
+	
+	background-color: #6cc5d5;
+	font-family: helvetica;
 }
 
 h1 {
 font-family: helvetica;
-
-text-align: center;
-color: black;
-font-size: 60px;
+	position: relative;
+	text-align: center;
+	color: white;
+	font-size: 65px;
+	text-shadow: 5px 5px #000000;
 	
 }
 
@@ -61,11 +65,9 @@ solid {
 	color: black;
 	background-color: orange;
 	padding: 10px 15px;
-	
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
-
+	font-size:20px;
 	transition-duration: 0.4s;
 	cursor: pointer;
 }
@@ -74,4 +76,8 @@ solid {
 button:hover {
 	background-color: #d35400;
 	color: white;
+}
+
+textarea {
+	font-family: helvetica;
 }

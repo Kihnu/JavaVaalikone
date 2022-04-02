@@ -23,6 +23,8 @@
 			<br>
 			<div class="party">Party: ${candidates.party}</div>
 			<br>
+			<div class="profession">Profession: ${candidates.profession}</div>
+			<br>
 			<div class="number">Voting number: ${candidates.vote_nro}</div>
 
 			<a href="/EditCandidate?id=${candidates.id}">Edit candidate</a>

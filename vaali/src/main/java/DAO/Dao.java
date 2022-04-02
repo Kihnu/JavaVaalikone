@@ -7,10 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import app.Comparison;
 import data.AnswersC;
 import data.Candidates;
-
 import data.Questions;
 import java.sql.Connection;
 
@@ -19,7 +17,6 @@ public class Dao {
 	private String pass;
 	private String url;
 	private Connection conn;
-	// private Comparison com;
 
 	public Dao(String url, String user, String pass) {
 		this.url = url;
@@ -39,7 +36,7 @@ public class Dao {
 			}
 			return true;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("DAO get connection" + e.getMessage());
 			return false;
 		}
 	}
@@ -61,7 +58,7 @@ public class Dao {
 			}
 			return list;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Read all questions: " + e.getMessage());
 			return null;
 		}
 
@@ -83,6 +80,7 @@ public class Dao {
 				c.setsurname(RS.getString("surname"));
 				c.setParty(RS.getString("party"));
 				c.setAge(RS.getInt("age"));
+				c.setProfession(RS.getString("profession"));
 				c.setWhat(RS.getString("what"));
 				c.setWhy(RS.getString("why"));
 				c.setVote_nro(RS.getInt("vote_nro"));
@@ -90,7 +88,7 @@ public class Dao {
 			}
 			return list;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Read all candidates: " + e.getMessage());
 			return null;
 		}
 
@@ -113,13 +111,14 @@ public class Dao {
 				c.setsurname(RS.getString("surname"));
 				c.setParty(RS.getString("party"));
 				c.setAge(RS.getInt("age"));
+				c.setProfession(RS.getString("profession"));
 				c.setWhat(RS.getString("what"));
 				c.setWhy(RS.getString("why"));
 				c.setVote_nro(RS.getInt("vote_nro"));
 			}
 			return c;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Read certain candidates: " + e.getMessage());
 			return null;
 		}
 	}
@@ -142,30 +141,71 @@ public class Dao {
 			}
 			return list;
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Read all answers C: " + e.getMessage());
+			return null;
+		}
+
+	}
+	
+	public ArrayList<Integer> readCertainAnswersC(int id) {
+		ArrayList<Integer> list = new ArrayList<>();
+		try {
+			Statement stmt = conn.createStatement();
+			String sql = "use vaalikone;";
+			stmt.executeUpdate(sql);
+			sql = "select * from answers where candidate_id = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			ResultSet RS=pstmt.executeQuery();
+			while (RS.next()) {
+				list.add(RS.getInt("answer_int"));
+
+			}
+			return list;
+		} catch (SQLException e) {
+			System.out.println("Read some answers: " + e.getMessage());
 			return null;
 		}
 
 	}
 
-//	public ArrayList<UserAnswer> userAnswer() {
-//		ArrayList<UserAnswer> list = new ArrayList<>();
-//		try {
-//			Statement stmt = conn.createStatement();
-//			String sql = "";
-//			PreparedStatement statement = conn.prepareStatement(sql);
-//			sql = "use vaalikone";
-//			statement.executeUpdate(sql);
-//			sql = "update user_answers set answer_int=? where id=?";
-//			statement.setString(1, com.g);
-//			statement.setString(2, );
-//			ResultSet RS = statement.executeQuery();
-//			
-//			return list;
-//
-//		} catch (SQLException e) {
-//			System.out.println(e.getMessage());
-//			return null;
-//		}
-//	}
+	public ArrayList<Integer> addComparison(int candidate, int average) {
+		ArrayList<Integer> list = new ArrayList<>();
+		try {
+			Statement stmt = conn.createStatement();
+			String sql = "use vaalikone;";
+			stmt.executeUpdate(sql);
+			sql = "update comparison set average = " + average + " where candidate_id = " + candidate + ";";
+			stmt.executeUpdate(sql);
+			} catch (SQLException e) {
+				System.out.println("comparison: " + e.getMessage());
+				return null;
+			}
+		return list;
+	}
+	
+	public ArrayList<Candidates> updateCandidate(Candidates c) {
+		try {
+			Statement stmt = conn.createStatement();
+			String sql = "use vaalikone;";
+			stmt.executeUpdate(sql);
+			sql="update candidates set firstname=?, surname=?, age=?, party=?, profession=?, why=?, what=?, vote_nro=? where candidate_id=?";
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, c.getfirstname());
+			pstmt.setString(2, c.getsurname());
+			pstmt.setInt(3, c.getAge());
+			pstmt.setString(4, c.getParty());
+			pstmt.setString(5, c.getProfession());
+			pstmt.setString(6, c.getWhy());
+			pstmt.setString(7, c.getWhat());
+			pstmt.setInt(8, c.getVote_nro());
+			pstmt.setInt(9, c.getId());
+			pstmt.executeUpdate();
+			return readAllCandidates();
+		}
+		catch(SQLException e) {
+			System.out.println("update candidate: " + e.getMessage());
+			return null;
+		}
+	}
 }
