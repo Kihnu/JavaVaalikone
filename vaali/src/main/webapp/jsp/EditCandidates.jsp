@@ -13,8 +13,14 @@
 <title>Edit Candidates</title>
 </head>
 <body>
-
-		<c:forEach var="candidates" items="${requestScope.candidates}">
+	<form method="get" action="/AdminMain">
+		<button type="submit" class=exitbutton>To Admin Page</button>
+	</form>
+	
+	<h1>Edit Candidates</h1>
+	
+	<c:forEach var="candidates" items="${requestScope.candidates}">
+		<div class="allCandidatesEdit">
 			<div class="id">${candidates.id}</div>
 			<div class="firstname">${candidates.firstname}</div>
 			<div class="surname">${candidates.surname}</div>
@@ -26,10 +32,14 @@
 			<div class="profession">Profession: ${candidates.profession}</div>
 			<br>
 			<div class="number">Voting number: ${candidates.vote_nro}</div>
-
-			<a href="/EditCandidate?id=${candidates.id}">Edit candidate</a>
-			<br>
+			<form action="/EditCandidate?id=${candidates.id}">
+				<button type="submit" class="infobutton">Edit Candidate</button>
+			</form>
+			<!--  
+			<a href="/EditCandidate?id=${candidates.id}">Edit candidate</a> <br>
+			-->
 			<hr class="solid">
-		</c:forEach>
+		</div>
+	</c:forEach>
 </body>
 </html>
