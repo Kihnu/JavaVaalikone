@@ -13,6 +13,7 @@
 <title>Edit Candidates</title>
 </head>
 <body>
+
 	<form method="get" action="/AdminMain">
 		<button type="submit" class=exitbutton>To Admin Page</button>
 	</form>
@@ -40,6 +41,7 @@
 			-->
 			<hr class="solid">
 		</div>
+    
 	</c:forEach>
 </body>
 </html>

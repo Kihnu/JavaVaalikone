@@ -11,9 +11,17 @@
 <title>Edit</title>
 </head>
 <body>
+	<form method="get" action="/AdminCandidates">
+		<button type="submit" class=exitbutton>Back</button>
+	</form>
+	<br>
+	<br>
+	<br>
+	<hr class="solid">
 	<form action="/UpdateCandidate" method="post">
-		<input type="text" name="id" value="${requestScope.candidate.id}" readonly /><br>
-		First name: <input type="text" name="firstname"
+		<input hidden=hidden type="text" name="id"
+			value="${requestScope.candidate.id}" readonly /><br> First
+		name: <input type="text" name="firstname"
 			value="${requestScope.candidate.firstname}" /><br> Surname: <input
 			type="text" name="surname" value="${requestScope.candidate.surname}" /><br>
 		Voting number: <input type="number" name="vote"
@@ -27,9 +35,17 @@
 		<br> What do you want when elected?
 		<textarea rows="4" cols="60" name="what">${requestScope.candidate.what}</textarea>
 		<br>
-		<button type="submit" class="button">Edit</button>
-
+		<button style="margin-top:25px;" type="submit" class="button">Edit</button>
 	</form>
+	<form action="/DeleteCandidate" method="post">
+		<input hidden=hidden name="id" value="${requestScope.candidate.id}"
+			readonly />
+		<button style="margin-top:25px;" type="submit" class="button"
+			onclick="return confirm('Are you sure you want to delete this candidate?');">Delete
+			candidate</button>
+	</form>
+
+
 
 </body>
 </html>

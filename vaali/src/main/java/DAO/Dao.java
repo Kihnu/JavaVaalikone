@@ -208,4 +208,21 @@ public class Dao {
 			return null;
 		}
 	}
+	
+	public ArrayList<Candidates> deleteCandidate(String id) {
+		try {
+			Statement stmt = conn.createStatement();
+			String sql = "use vaalikone;";
+			stmt.executeUpdate(sql);
+			sql="delete from answers where candidate_id=" + id;
+			stmt.executeUpdate(sql);
+			sql="delete from candidates where candidate_id=" + id;
+			stmt.executeUpdate(sql);
+			return readAllCandidates();
+		}
+		catch(SQLException e) {
+			System.out.println("Deletoi: " + e.getMessage());
+			return null;
+		}
+	}
 }
