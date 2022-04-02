@@ -13,9 +13,9 @@
 <body>
 <!-- Kuva tietystä ehdokkaasta -->
 <h1><% System.out.println("Ehdokas 1"); %></h1>
-<text>Candidate number: <% System.out.println("Tietokannasta"); %></text>
-<text>Party: <% System.out.println("Tietokannasta"); %> </text>
-<text>Profession: <% System.out.println("Tietokannasta"); %> </text>
+<label>Candidate number: <% System.out.println("Tietokannasta"); %></label>
+<label>Party: <% System.out.println("Tietokannasta"); %> </label>
+<label>Profession: <% System.out.println("Tietokannasta"); %> </label>
 
 <b>Extra information</b>
 <% System.out.println("Tietokannasta infoa ehdokkaalle 1"); %>

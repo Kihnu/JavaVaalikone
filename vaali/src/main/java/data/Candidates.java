@@ -6,15 +6,17 @@ public class Candidates {
 	private String surname;
 	private String party;
 	private int age;
+	private String profession;
 	private String why;
 	private String what;
 	private int vote_nro;
-	public Candidates(String id, String firstname, String surname, String party, String age, String why, String what, String vote_nro) {
+	public Candidates(String id, String firstname, String surname, String party, String age, String profession, String why, String what, String vote_nro) {
 		setId(id);
 		this.firstname=firstname;
 		this.surname=surname;
 		this.party=party;
 		setAge(age);
+		this.profession=profession;
 		this.why=why;
 		this.what=what;
 		setVote_nro(vote_nro);	
@@ -93,6 +95,12 @@ public class Candidates {
 		catch(NumberFormatException | NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	public String getProfession() {
+		return profession;
+	}
+	public void setProfession(String profession) {
+		this.profession = profession;
 	}
 	
 	
