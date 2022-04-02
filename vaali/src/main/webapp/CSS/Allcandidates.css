@@ -1,47 +1,35 @@
 @charset "ISO-8859-1";
 
-
 body {
-	
-	
 	background-color: #6cc5d5;
 	font-family: helvetica;
 }
 
 h1 {
-font-family: helvetica;
+	font-family: helvetica;
 	position: relative;
 	text-align: center;
 	color: white;
 	font-size: 65px;
 	text-shadow: 5px 5px #000000;
-	
 }
 
-.allcandidates
-{
-
-font-family: helvetica;
-
-
-margin-left: auto;
-margin-right: auto;
-
-text-align: center;
-color: black;
-font-size: 30px;
+.allcandidates {
+	font-family: helvetica;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: black;
+	font-size: 30px;
 }
 
-h2
-{
+h2 {
 	font-size: 40px;
-	
 }
 
 solid {
 	border-top: 3px solid #bbb;
 }
-
 
 .infobutton {
 	font-family: helvetica;
@@ -58,20 +46,49 @@ solid {
 	cursor: pointer;
 }
 
-.exitbutton
-{
+.exitbutton {
 	font-family: helvetica;
 	border: none;
 	color: black;
 	background-color: orange;
 	padding: 10px 15px;
 	text-decoration: none;
-	display: inline-block;
-	font-size:20px;
+	font-size: 20px;
 	transition-duration: 0.4s;
 	cursor: pointer;
+	width: 200px;
+	float: left;
 }
 
+.add {
+	font-family: helvetica;
+	border: none;
+	color: black;
+	background-color: orange;
+	padding: 10px 15px;
+	text-decoration: none;
+	font-size: 20px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	width: 200px;
+	margin-left: 50px;
+	float: left;
+}
+
+.button {
+	font-family: helvetica;
+	border: none;
+	color: black;
+	background-color: orange;
+	padding: 10px 15px;
+	text-decoration: none;
+	font-size: 20px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	width: 200px;
+	margin-left: 50px;
+	float: left;
+}
 
 button:hover {
 	background-color: #d35400;
