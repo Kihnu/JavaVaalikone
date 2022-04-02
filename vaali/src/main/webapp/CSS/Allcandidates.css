@@ -70,7 +70,7 @@ solid {
 	transition-duration: 0.4s;
 	cursor: pointer;
 	width: 200px;
-	float: left;
+	/* float: left; */
 }
 
 .add {
