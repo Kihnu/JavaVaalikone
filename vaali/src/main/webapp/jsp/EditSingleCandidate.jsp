@@ -20,7 +20,7 @@
 	<hr class="solid">
 	<div class="allcandidates">
 		<div class="formi">
-			<h1>Update information</h1>
+			<h1>Edit information</h1>
 		</div>
 		<br>
 		<div class="formi">
