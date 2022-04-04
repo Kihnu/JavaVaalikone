@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.Dao;
+import data.Candidates;
 import data.Comparison;
 
 /**
@@ -43,14 +44,19 @@ public class Results extends HttpServlet {
 		String id=request.getParameter("id");
 		ArrayList<data.Comparison> comparison = null;
 		
+		
 		ArrayList<Comparison> list=null;
+		ArrayList<Candidates> candidates = null;
+		
 		if (dao.getConnection()){
 			comparison=dao.readAllComparison(id);
+			candidates=dao.readAllCandidates();
 		}
 		else {
 			System.out.println("No connection to database");
 		}
 		request.setAttribute("comparison", comparison);
+		request.setAttribute("candidates", candidates);
 		
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/results.jsp");
 		rd.forward(request, response);

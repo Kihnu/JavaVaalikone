@@ -1,5 +1,6 @@
 package data;
 
+// M‰‰ritt‰‰ comparison tietokannan tablen arvoille getterit ja setterit
 public class Comparison {
 	private int id;
 	private int comparisonID;
