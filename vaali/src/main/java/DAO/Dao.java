@@ -227,7 +227,7 @@ public class Dao {
 		}
 	}
 	
-	public ArrayList<Comparison> readAllComparison(String id) {
+	public ArrayList<Comparison> readAllComparison() {
 		ArrayList<Comparison> list = new ArrayList<>();
 		try {
 			Statement stmt = conn.createStatement();
@@ -243,7 +243,7 @@ public class Dao {
 				c.setComparisonPercent(RS.getInt("average"));
 				list.add(c);
 			}
-			System.out.println("Comparison luettu");
+			// System.out.println("Comparison luettu");
 			return list;
 		} catch (SQLException e) {
 			System.out.println("Read all comparisons: " + e.getMessage());

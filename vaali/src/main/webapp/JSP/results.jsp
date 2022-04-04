@@ -20,7 +20,7 @@
 
 	</h1>
 
-	
+
 	<c:forEach var="candidates" items="${requestScope.candidates}">
 		<div>
 			<!-- Kandidaatin koko nimi -->
@@ -31,22 +31,12 @@
 			<div class="candidateNum">Candidate number:
 				${candidates.vote_nro}#</div>
 			<br>
-
-
 			<hr class="solid">
 		</div>
-
 	</c:forEach>
-	
 
 	<c:forEach var="comparison" items="${requestScope.comparison}">
 		<div>
-			<div>
-				<br>
-
-				<hr class="solid">
-			</div>
-
 			<!-- Tietokannan taulun id  -->
 			<!-- <div class="TableId">${comparison.id}</div> -->
 			<!-- Kandidaatin ID -->
@@ -55,15 +45,12 @@
 			<!-- Kandidaatin prosentti samaa mieltä, "average" -->
 			<div class="Average%">${comparison.comparisonPercent}%</div>
 			<br>
-
-
 			<hr class="solid">
 		</div>
-
 	</c:forEach>
 	<div>
 
-		<br> <br> <br>
+		<br> <br>
 
 	</div>
 

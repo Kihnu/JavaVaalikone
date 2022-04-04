@@ -41,15 +41,15 @@ public class Results extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String id=request.getParameter("id");
-		ArrayList<data.Comparison> comparison = null;
+		//ArrayList<data.Comparison> comparison = null;
 		
 		
-		ArrayList<Comparison> list=null;
+		ArrayList<Comparison> comparison = null;
 		ArrayList<Candidates> candidates = null;
 		
+		
 		if (dao.getConnection()){
-			comparison=dao.readAllComparison(id);
+			comparison =dao.readAllComparison();
 			candidates=dao.readAllCandidates();
 		}
 		else {
