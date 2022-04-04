@@ -35,17 +35,8 @@
 		</div>
 	</c:forEach>
 
-	<c:forEach var="comparison" items="${requestScope.comparison}"
-		var="candidates"
-		items="${requestScope.candidates}>
+	<c:forEach var="comparison" items="${requestScope.comparison}">
 		<div>
-		<!-- Kandidaatin koko nimi -->
-			<div class="name">${candidates.firstname}${candidates.surname}</div>
-			<!-- Kandidaatin puolue -->
-			<div class="party">${candidates.party}</div>
-			<!-- Kandidaatin numero -->
-			<div class="candidateNum">Candidate number:
-				${candidates.vote_nro}#</div>
 			<!-- Tietokannan taulun id  -->
 			<!-- <div class="TableId">${comparison.id}</div> -->
 			<!-- Kandidaatin ID -->
