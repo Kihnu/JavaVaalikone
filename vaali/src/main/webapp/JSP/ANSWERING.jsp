@@ -13,7 +13,6 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href=CSS/questions.css>
 
-
 <title>Questions</title>
 </head>
 <body>
@@ -32,11 +31,10 @@
 		<div class="vaihtoehdot">
 			<!--<ol>
 			<c:forEach var="questions" items="${requestScope.questionlist}"> -->
-			<%! int i = 1; %>
 
 			<br>
 			<p class="number">
-				<%= i %>/${questionlist.size()}
+				${questions.id}/${questionlist.size()}
 			</p>
 
 			<br>
@@ -77,7 +75,6 @@
 
 
 			</div>
-			<% i++; %>
 			<hr class="solid">
 			<!--</c:forEach>
 		</ol>-->
@@ -92,8 +89,6 @@
 		@SuppressWarnings("unchecked")
 	ArrayList<Questions> questionlist = (ArrayList<Questions>) request.getAttribute("questionlist");
 	for (int i = 0; i < questionlist.size(); i++) {
-	
-		
 	%>
 
 
@@ -102,4 +97,5 @@
 		}
 	%>
 </body>
+
 </html>
