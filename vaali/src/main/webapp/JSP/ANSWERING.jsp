@@ -77,7 +77,7 @@
 
 			</div>
 
-				</label> <br> <br>
+			 <br> <br>
 
 
 
@@ -88,7 +88,7 @@
   
 			<br> <br>
 
-		</div>
+		
 	</form>
 	<form action="/Results">
 		<button type="submit" class="button">Submit your answers</button>
