@@ -61,9 +61,19 @@ button.form{
 	font-family: helvetica;
 	margin-left: auto;
 	margin-right: auto;
-	text-align: center;
 	color: black;
 	font-size: 30px;
+	width: 90%;
+}
+
+.candidate {
+	background-color: #f2f2f2;
+	border-radius: 50px;
+}
+
+img {
+	float: left;
+	padding: 5px 50px;
 }
 
 .allCandidatesEdit {
@@ -84,6 +94,17 @@ h2 {
 
 solid {
 	border-top: 3px solid #bbb;
+}
+
+.name {
+	text-align: center;
+	padding-top: 10px;
+	display: inline-block;
+}
+
+.extra{
+	padding-bottom: 50px;
+	display:inline-block;
 }
 
 .infobutton {
@@ -165,3 +186,4 @@ button:hover {
 	background-color: #d35400;
 	color: white;
 }
+
