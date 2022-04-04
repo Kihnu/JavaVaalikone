@@ -34,8 +34,7 @@
 			<c:forEach var="questions" items="${requestScope.questionlist}"> -->
 
 
-			<br>
-			<br>
+			<br> <br>
 			<p class="number">${questions.id}/${questionlist.size()}</p>
 
 			<br>
@@ -48,15 +47,13 @@
 			<div class="radiogrp">
 				<input type="radio" name="answer${questions.id}" value="option1"
 					id="radio_1" required><label for="radio_1">Strongly
-					Disagree </label> <br>
-				<br>
+					Disagree </label> <br> <br>
 
 			</div>
 			<div class="radiogrp">
 				<input type="radio" name="answer${questions.id}" value="option2"
 					id="radio_2" required><label for="radio_2">Somewhat
-					Disagree </label> <br>
-				<br>
+					Disagree </label> <br> <br>
 			</div>
 			<div class="radiogrp">
 				<input type="radio" name="answer${questions.id}" value="option3"
@@ -67,15 +64,13 @@
 			<div class="radiogrp">
 				<input type="radio" name="answer${questions.id}" value="option4"
 					id="radio_4" required><label for="radio_4">Somewhat
-					Agree </label> <br>
-				<br>
+					Agree </label> <br> <br>
 			</div>
 			<div class="radiogrp">
 				<input type="radio" name="answer${questions.id}" value="option5"
 					id="radio_5" required><label for="radio_5">Strongly<br>Agree
 
-				</label> <br>
-				<br>
+				</label> <br> <br>
 
 
 
@@ -83,10 +78,12 @@
 
 			<!--</c:forEach>
 		</ol>-->
-			<button type="submit" class="button">Submit your answers</button>
 			<br> <br>
 
 		</div>
+	</form>
+	<form action="/Results">
+		<button type="submit" class="button">Submit your answers</button>
 	</form>
 	<%
 		@SuppressWarnings("unchecked")

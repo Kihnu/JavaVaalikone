@@ -22,11 +22,11 @@
 	<c:forEach var="comparison" items="${requestScope.comparison}">
 		<div>
 			<!-- Tietokannan taulun id  -->
-			<div class="TableId">${comparison.id}</div>
+			<!-- <div class="TableId">${comparison.id}</div> -->
 			<!-- Kandidaatin ID -->
-			<div class="ComparisonID">${comparison.comparisonID}</div>
+			<div class="ComparisonID">Candidate ${comparison.comparisonID}#</div>
 			<!-- Kandidaatin prosentti samaa mieltä, "average" -->
-			<div class="Average%">${comparison.comparisonPercent}</div>
+			<div class="Average%">${comparison.comparisonPercent} %</div> 
 			<br>
 			
 
