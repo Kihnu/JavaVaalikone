@@ -18,32 +18,47 @@
 	<br>
 	<br>
 	<hr class="solid">
-	<form action="/UpdateCandidate" method="post">
-		<input hidden=hidden type="text" name="id"
-			value="${requestScope.candidate.id}" readonly /><br> First
-		name: <input type="text" name="firstname"
-			value="${requestScope.candidate.firstname}" /><br> Surname: <input
-			type="text" name="surname" value="${requestScope.candidate.surname}" /><br>
-		Voting number: <input type="number" name="vote"
-			value="${requestScope.candidate.vote_nro}" /><br> Age: <input
-			type="number" name="age" value="${requestScope.candidate.age}" /><br>
-		Party: <input type="text" name="party"
-			value="${requestScope.candidate.party}" /><br> Profession: <input
-			type="text" name="pro" value="${requestScope.candidate.profession}" /><br>
-		Why are you running?
-		<textarea rows="4" cols="60" name="why">${requestScope.candidate.why}</textarea>
-		<br> What do you want when elected?
-		<textarea rows="4" cols="60" name="what">${requestScope.candidate.what}</textarea>
+	<div class="allcandidates">
+		<div class="formi">
+			<h1>Update information</h1>
+		</div>
 		<br>
-		<button style="margin-top:25px;" type="submit" class="button">Edit</button>
-	</form>
-	<form action="/DeleteCandidate" method="post">
-		<input hidden=hidden name="id" value="${requestScope.candidate.id}"
-			readonly />
-		<button style="margin-top:25px;" type="submit" class="button"
-			onclick="return confirm('Are you sure you want to delete this candidate?');">Delete
-			candidate</button>
-	</form>
+		<div class="formi">
+			<form action="/UpdateCandidate" method="post">
+				<input hidden=hidden type="text" name="id"
+					value="${requestScope.candidate.id}" readonly /> <br> <label>First
+					name: </label> <input type="text" name="firstname"
+					value="${requestScope.candidate.firstname}" /><br> <label>Surname
+				</label> <input type="text" name="surname"
+					value="${requestScope.candidate.surname}" /><br> <label>Voting
+					number: </label> <input type="number" name="vote"
+					value="${requestScope.candidate.vote_nro}" /><br> <label>Age:
+				</label> <input type="number" name="age"
+					value="${requestScope.candidate.age}" /><br> <label>Party:
+				</label> <input type="text" name="party"
+					value="${requestScope.candidate.party}" /><br> <label>Profession:
+				</label> <input type="text" name="pro"
+					value="${requestScope.candidate.profession}" /><br> <label>Why
+					are you running? </label>
+				<textarea rows="2" cols="55" name="why">${requestScope.candidate.why}</textarea>
+				<br> <label>What do you want when elected? </label>
+				<textarea rows="2" cols="55" name="what">${requestScope.candidate.what}</textarea>
+				<br>
+				<button type="submit" class="button">Edit</button>
+			</form>
+	
+			<form action="/DeleteCandidate" method="post">
+				<input hidden=hidden name="id" value="${requestScope.candidate.id}"
+					readonly />
+				<button type="submit" class="button"
+					onclick="return confirm('Are you sure you want to delete this candidate?');">Delete
+					candidate</button>
+			</form>
+		</div>
+		<br>
+		<br>
+
+	</div>
 
 
 

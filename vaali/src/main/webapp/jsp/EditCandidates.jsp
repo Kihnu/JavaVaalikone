@@ -13,38 +13,35 @@
 <title>Edit Candidates</title>
 </head>
 <body>
-	<h1>Edit candidates</h1>
-	<div>
-		<form method="get" action="/AdminMain">
-			<button type="submit" class=exitbutton>To admin page</button>
-		</form>
-		<form method="get" action="/AddCandidate">
-			<button type="submit" class=add>Add candidate</button>
-		</form>
-	</div>
-	<br>
-	<br>
-	<br>
-	<hr class="solid">
+
+	<form action="http://localhost:8080/AdminMain?">
+		<button type="submit" class=exitbutton>To Admin Page</button>
+	</form>
+	
+	<h1>Edit Candidates</h1>
+	
 	<c:forEach var="candidates" items="${requestScope.candidates}">
-		<div class="id" hidden=hidden>${candidates.id}</div>
-		<div class="firstname">${candidates.firstname}
-			${candidates.surname}</div>
-		<div class="surname" hidden=hidden>${candidates.surname}</div>
-		<br>
-		<div class="info"><b>Age:</b> ${candidates.age} <b>Party:</b>
-			${candidates.party} <b>Profession:</b> ${candidates.profession} <b>Voting
-			number:</b> ${candidates.vote_nro}</div>
-		<div class="party" hidden=hidden>Party: ${candidates.party}</div>
-		<div class="profession" hidden=hidden>Profession:
-			${candidates.profession}</div>
-		<div class="number" hidden=hidden>Voting number:
-			${candidates.vote_nro}</div>
-
-		<a href="/EditCandidate?id=${candidates.id}">Edit candidate</a>
-
-		<br>
-		<hr class="solid">
+		<div class="allCandidatesEdit">
+			<div class="id">${candidates.id}</div>
+			<div class="firstname">${candidates.firstname}</div>
+			<div class="surname">${candidates.surname}</div>
+			<br>
+			<div class="age">Age: ${candidates.age}</div>
+			<br>
+			<div class="party">Party: ${candidates.party}</div>
+			<br>
+			<div class="profession">Profession: ${candidates.profession}</div>
+			<br>
+			<div class="number">Voting number: ${candidates.vote_nro}</div>
+			<form action="/EditCandidate?id=${candidates.id}">
+				<button type="submit" class="infobutton">Edit Candidate</button>
+			</form>
+			<!--  
+			<a href="/EditCandidate?id=${candidates.id}">Edit candidate</a> <br>
+			-->
+			<hr class="solid">
+		</div>
+    
 	</c:forEach>
 </body>
 </html>
