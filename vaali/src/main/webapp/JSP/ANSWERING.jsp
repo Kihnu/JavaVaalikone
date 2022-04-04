@@ -32,12 +32,13 @@
 			<!--<ol>
 			<c:forEach var="questions" items="${requestScope.questionlist}"> -->
 
-			<br>
-			<p class="number">
-				${questions.id}/${questionlist.size()}
-			</p>
+
+
+			<br> <br>
+			<p class="number">${questions.id}/${questionlist.size()}</p>
 
 			<br>
+
 
 			<div class="question">${questions.question}
 				<br> <br>
@@ -75,15 +76,22 @@
 
 
 			</div>
+
+				</label> <br> <br>
+
+
+
+			</div>
 			<hr class="solid">
 			<!--</c:forEach>
 		</ol>-->
-
-			<button type="submit" class="button">Submit your answers</button>
-
+  
 			<br> <br>
 
 		</div>
+	</form>
+	<form action="/Results">
+		<button type="submit" class="button">Submit your answers</button>
 	</form>
 	<%
 		@SuppressWarnings("unchecked")

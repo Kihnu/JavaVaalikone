@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import data.AnswersC;
 import data.Candidates;
 import data.Questions;
+import data.Comparison;
 import java.sql.Connection;
 
 public class Dao {
@@ -225,4 +226,32 @@ public class Dao {
 			return null;
 		}
 	}
+	
+	public ArrayList<Comparison> readAllComparison() {
+		ArrayList<Comparison> list = new ArrayList<>();
+		try {
+			Statement stmt = conn.createStatement();
+			String sql = "";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			sql = "use vaalikone";
+			statement.executeUpdate(sql);
+			ResultSet RS = stmt.executeQuery("select * from comparison");
+			while (RS.next()) {
+				Comparison c = new Comparison();
+				c.setComparisonID(RS.getInt("comp_id"));
+				c.setId(RS.getInt("candidate_id"));
+				c.setComparisonPercent(RS.getInt("average"));
+				list.add(c);
+			}
+			// System.out.println("Comparison luettu");
+			return list;
+		} catch (SQLException e) {
+			System.out.println("Read all comparisons: " + e.getMessage());
+			return null;
+		}
+
+	}
+
+
+	
 }
