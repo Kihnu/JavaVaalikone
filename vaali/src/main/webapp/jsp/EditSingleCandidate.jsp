@@ -48,6 +48,7 @@
 				<button type="submit" class="button"
 					onclick="return confirm('Are you sure you want to delete this candidate?');">Delete
 					candidate</button>
+					<br>
 			</form>
 		</div>
 		<br>
