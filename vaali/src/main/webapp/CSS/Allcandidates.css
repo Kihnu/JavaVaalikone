@@ -72,8 +72,11 @@ button.form{
 }
 
 img {
+	width: 200px;
+	height: 200px;
+	object-fit: none;
 	float: left;
-	padding: 5px 50px;
+	padding: 20px 50px;
 }
 
 .allCandidatesEdit {
