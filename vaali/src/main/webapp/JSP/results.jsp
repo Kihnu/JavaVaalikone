@@ -21,13 +21,14 @@
 
 	<c:forEach var="candidates" items="${requestScope.candidates}">
 		<div>
+			<!-- Tietokannan taulun id  -->
 			<div class="id">${comparison.comparisonID}</div>
+			<!-- Kandidaatin ID -->
 			<div class="firstname">${comparison.id}</div>
+			<!-- Kandidaatin prosentti samaa mieltä, "average" -->
 			<div class="surname">${comparison.Comp}</div>
 			<br>
-			<!-- Candidaatin prosentti samaa mieltä, comparison % tulos -->
-
-			<!-- <div class="comparison">${comparison.size()}</div>  -->
+			
 
 			<hr class="solid">
 		</div>
