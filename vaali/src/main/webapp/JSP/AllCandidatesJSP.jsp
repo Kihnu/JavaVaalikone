@@ -42,21 +42,18 @@
 				<tr>
 					<td>
 
-						<div class="candidate">
 
-							<img src="/images/kuva<%=j%>.png">
-							<div class="name">
-								<h2>${candidates.firstname} ${candidates.surname}</h2>
-							</div>
-							<Br>
-							<div class="extra">
-								Candidate #${candidates.vote_nro} <Br> Party:
-								${candidates.party} <Br>
-							</div>
-
-							<button class=infobutton name="info<%=i%>" type="submit" style="float:right; margin-right:50px;">More
-								information</button>
+						<div>
+							<h2>${candidates.firstname}${candidates.surname}</h2>
+							<img src="/images/kuva<%=j%>.png"> <Br> Election
+							number: ${candidates.vote_nro} <Br> Party:
+							${candidates.party} <Br> <Br>
 						</div>
+						<form action="/SingleCandidate">
+							<button class=infobutton name="info<%=i%>" type="submit">More
+								information</button>
+						</form> <br> <br> <br>
+
 					</td>
 
 				</tr>
