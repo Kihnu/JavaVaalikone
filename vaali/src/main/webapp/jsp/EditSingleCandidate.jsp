@@ -15,14 +15,9 @@
 		<button type="submit" class=exitbutton>Back</button>
 	</form>
 	<br>
-	<br>
-	<br>
 	<hr class="solid">
 	<div class="allcandidates">
-		<div class="formi">
 			<h1>Update information</h1>
-		</div>
-		<br>
 		<div class="formi">
 			<form action="/UpdateCandidate" method="post">
 				<input hidden=hidden type="text" name="id"
@@ -38,12 +33,12 @@
 				</label> <input type="text" name="party"
 					value="${requestScope.candidate.party}" /><br> <label>Profession:
 				</label> <input type="text" name="pro"
-					value="${requestScope.candidate.profession}" /><br> <label>Why
+					value="${requestScope.candidate.profession}" /><br> <label style="transform: translateY(-25%);">Why
 					are you running? </label>
-				<textarea rows="2" cols="55" name="why">${requestScope.candidate.why}</textarea>
-				<br> <label>What do you want when elected? </label>
-				<textarea rows="2" cols="55" name="what">${requestScope.candidate.what}</textarea>
-				<br>
+				<textarea rows="3" cols="55" name="why" >${requestScope.candidate.why}</textarea>
+				<br> <br><label>What do you want when elected? </label>
+				<textarea rows="3" cols="55" name="what">${requestScope.candidate.what}</textarea>
+				<br><br>
 				<button type="submit" class="button">Edit</button>
 			</form>
 	
