@@ -243,7 +243,8 @@ public class Dao {
 				c.setComparisonPercent(RS.getInt("average"));
 				list.add(c);
 			}
-			// System.out.println("Comparison luettu");
+			sql = "select * from comparison order by average desc;";
+			System.out.println("Comparison luettu");
 			return list;
 		} catch (SQLException e) {
 			System.out.println("Read all comparisons: " + e.getMessage());
