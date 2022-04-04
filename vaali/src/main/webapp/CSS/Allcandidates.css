@@ -43,6 +43,7 @@ label {
 }
 
 textarea{
+	font-family: helvetica;
 	padding: 6px;
 	font-size: 14px;
 }
@@ -60,9 +61,19 @@ button.form{
 	font-family: helvetica;
 	margin-left: auto;
 	margin-right: auto;
-	text-align: center;
 	color: black;
 	font-size: 30px;
+	width: 90%;
+}
+
+.candidate {
+	background-color: #f2f2f2;
+	border-radius: 50px;
+}
+
+img {
+	float: left;
+	padding: 5px 50px;
 }
 
 .allCandidatesEdit {
@@ -85,7 +96,33 @@ solid {
 	border-top: 3px solid #bbb;
 }
 
+.name {
+	text-align: center;
+	padding-top: 10px;
+	display: inline-block;
+}
+
+.extra{
+	padding-bottom: 50px;
+	display:inline-block;
+}
+
 .infobutton {
+	font-family: helvetica;
+	border: none;
+	color: black;
+	background-color: orange;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+a.infobutton {
 	font-family: helvetica;
 	border: none;
 	color: black;
@@ -150,6 +187,3 @@ button:hover {
 	color: white;
 }
 
-textarea {
-	font-family: helvetica;
-}

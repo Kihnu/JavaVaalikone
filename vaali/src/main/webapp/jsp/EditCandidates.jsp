@@ -17,9 +17,9 @@
 	<form action="http://localhost:8080/AdminMain?">
 		<button type="submit" class=exitbutton>To Admin Page</button>
 	</form>
-	
+
 	<h1>Edit Candidates</h1>
-	
+
 	<c:forEach var="candidates" items="${requestScope.candidates}">
 		<div class="allCandidatesEdit">
 			<div class="id">${candidates.id}</div>
@@ -33,15 +33,17 @@
 			<div class="profession">Profession: ${candidates.profession}</div>
 			<br>
 			<div class="number">Voting number: ${candidates.vote_nro}</div>
-			<form action="/EditCandidate?id=${candidates.id}">
-				<button type="submit" class="infobutton">Edit Candidate</button>
-			</form>
-			<!--  
-			<a href="/EditCandidate?id=${candidates.id}">Edit candidate</a> <br>
+			<!--<form action="/EditCandidate?id=${candidates.id}">
+				<button type="submit" class="infobutton">Edit Candidate</button>  -->
+			<a href="/EditCandidate?id=${candidates.id}" class="infobutton">Edit
+				candidate</a> <br>
+			<!-- </form>
+			 
+			
 			-->
 			<hr class="solid">
 		</div>
-    
+
 	</c:forEach>
 </body>
 </html>

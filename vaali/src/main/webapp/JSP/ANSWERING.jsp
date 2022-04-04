@@ -13,7 +13,6 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href=CSS/questions.css>
 
-
 <title>Questions</title>
 </head>
 <body>
@@ -34,10 +33,12 @@
 			<c:forEach var="questions" items="${requestScope.questionlist}"> -->
 
 
+
 			<br> <br>
 			<p class="number">${questions.id}/${questionlist.size()}</p>
 
 			<br>
+
 
 			<div class="question">${questions.question}
 				<br> <br>
@@ -76,8 +77,15 @@
 
 			</div>
 
+				</label> <br> <br>
+
+
+
+			</div>
+			<hr class="solid">
 			<!--</c:forEach>
 		</ol>-->
+  
 			<br> <br>
 
 		</div>
@@ -97,4 +105,5 @@
 		}
 	%>
 </body>
+
 </html>

@@ -132,7 +132,7 @@ public class Comparison extends HttpServlet {
 			}
 			System.out.println("SUMMA :" + sum);
 			int average = sum / comparison.size();
-			System.out.println("TÄMÄ ON TULOSSA DATABASEE: " + (x+1) + " - " + average + " %");
+			System.out.println("TAMA ON TULOSSA DATABASEE: " + (x+1) + " - " + average + " %");
 			dao.addComparison(x+1, average);
 			sum = 0;
 		}

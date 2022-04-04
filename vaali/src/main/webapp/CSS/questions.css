@@ -60,6 +60,20 @@ p {
 
 }
 
+.vaihtoehdot {
+	font-family: helvetica;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background-color: #f2f2f2;
+	padding: 30px;
+	width: 80%;
+}
+
+solid {
+	border-top: 3px solid #bbb;
+}
+
 .button {
 	border: none;
 	color: black;
