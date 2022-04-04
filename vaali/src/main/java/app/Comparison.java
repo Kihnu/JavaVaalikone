@@ -3,6 +3,7 @@ package app;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,10 +44,11 @@ public class Comparison extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher rd=request.getRequestDispatcher("/jsp/results.jsp");
+		rd.forward(request, response);
 		// ehdokkaiden vastaustietokanta
-
+		
 	}
 
 	/**
