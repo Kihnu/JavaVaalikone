@@ -45,7 +45,7 @@ div {
 	transition-duration: 0.4s;
 	cursor: pointer;
 	width: 205px;
-	margin-left: 10px;
+	margin-left: 5px;
 	float: left;
 }
 
@@ -60,7 +60,7 @@ div {
 	transition-duration: 0.4s;
 	cursor: pointer;
 	width: 205px;
-	margin-left: 25px;
+	margin-left: 10px;
 	float: left;
 }
 button:hover {

@@ -16,7 +16,7 @@
 <body>
 
 	<form method="get" action="/index.html">
-		<button type="submit" class=exitbutton>To main page</button>
+		<button type="submit" class=exitbutton>Front Page</button>
 	</form>
 
 	<form>
