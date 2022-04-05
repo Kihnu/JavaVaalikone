@@ -53,18 +53,19 @@ form {
 
 
 .button3 {
-	width: 120px;
+	
 	font-family: helvetica;
 	border: none;
 	color: black;
-	background-color: #ffffff;
-	padding: 15px 15px;
+	background-color: orange;
+	padding: 10px 15px;
 	text-decoration: none;
-	float:left;
-	font-size: 18px;
-	margin: 10px 10px;
+	display: inline-block;
+	font-size: 20px;
 	transition-duration: 0.4s;
 	cursor: pointer;
+	margin: 5px 5px;
+	float: left;
 }
 
 .button:hover {
@@ -79,7 +80,7 @@ form {
 }
 	
 .button3:hover {
-	background-color: green;
+	background-color: #d35400;
 	color: white;
 	
 	
