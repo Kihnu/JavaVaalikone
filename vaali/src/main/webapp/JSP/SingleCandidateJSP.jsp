@@ -19,11 +19,7 @@
 	</form>
 
 	<!-- Kuva tietystä ehdokkaasta -->
-	<h1>
-		<%
-			System.out.println("Ehdokas 1");
-		%>
-	</h1>
+	<h1>More Information on Candidate</h1>
 	<label>Candidate number: <%
 		System.out.println("Tietokannasta");
 	%></label>

@@ -40,13 +40,15 @@ public class SingleCandidate extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		// Ottaa napista inputin ja sen arvolla saa ehdokkaan numeron. Tällä tiedolla voi etsiä kandidaatin kysymykset
 		String id=request.getParameter("id");
 		Candidates candidate = null;
 
 		if (dao.getConnection()) {
 			candidate = dao.readCertainCandidate(id);
 			// daosta kandidaatille kysymykset
-			// daosta kandidaatin vastaukset kysymyksiin
+			// daosta tietyn kandidaatin vastaukset kysymyksiin
 		} else {
 			System.out.println("No connection to database");
 		}

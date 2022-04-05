@@ -105,6 +105,7 @@ public class Dao {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			ResultSet RS=pstmt.executeQuery();
+			// Tietyn kandidaatin tiedot
 			while (RS.next()) {
 				c = new Candidates();
 				c.setId(RS.getInt("candidate_id"));
