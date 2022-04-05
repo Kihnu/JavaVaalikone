@@ -11,13 +11,15 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href=CSS/Allcandidates.css>
 <title>All Candidates</title>
+
+
 </head>
-<body>
-
-
-	<form method="get" action="/index.html">
-		<button type="submit" class=exitbutton>To main page</button>
+<form method="get" action="/index.html">
+		<button type="submit" class=exitbutton>Front Page</button>
 	</form>
+<body>
+	
+	
 	<Br>
 	<Br>
 

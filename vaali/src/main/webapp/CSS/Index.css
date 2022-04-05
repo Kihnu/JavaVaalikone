@@ -36,19 +36,36 @@ form {
 }
 
 .button2 {
-	width: 150px;
+	width: 120px;
 	font-family: helvetica;
 	border: none;
 	color: black;
-	background-color: #FFD580;
-	padding: 20px 20px;
-	text-align: center;
+	background-color: #ffffff;
+	padding: 15px 15px;
+	
 	text-decoration: none;
-	display: inline-block;
-	font-size: 22px;
-	margin: 4px 2px;
+	float:right;
+	font-size: 18px;
+	margin: 10px 10px;
 	transition-duration: 0.4s;
 	cursor: pointer;
+}
+
+
+.button3 {
+	
+	font-family: helvetica;
+	border: none;
+	color: black;
+	background-color: orange;
+	padding: 10px 15px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	margin: 5px 5px;
+	float: left;
 }
 
 .button:hover {
@@ -59,4 +76,12 @@ form {
 .button2:hover {
 	background-color: green;
 	color: white;
+	
+}
+	
+.button3:hover {
+	background-color: #d35400;
+	color: white;
+	
+	
 }

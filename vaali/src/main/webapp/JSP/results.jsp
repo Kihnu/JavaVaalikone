@@ -16,11 +16,11 @@
 <body>
 
 	<form method="get" action="/index.html">
-		<button type="submit" class=exitbutton>To main page</button>
+		<button type="submit" class=exitbutton>Front Page</button>
 	</form>
 
 	<form>
-		<button type="button" class=backbutton onclick="history.back()">Edit answers</button>
+		<button type="button" class=backbutton onclick="history.back()">Return to questions</button>
 	</form>
 	<br>
 	<br>
