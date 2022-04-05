@@ -8,14 +8,21 @@
 
 <body>
 
+	<form method="get" action="/index.html">
+		<button type="submit" class="button3">Front Page</button>
+	</form>
+	
+	<br>
+
+	<br>
+	<br>
+	<br>
+
 	<h1>WELCOME TO THE ADMIN LAIR</h1>
 
 	<br>
 
-	<form method="get" action="/index.html">
-		<button type="submit" class="button">Front Page</button>
-	</form>
-
+	<br>
 	<br>
 
 	<form method="get" action="/AdminQuestions">

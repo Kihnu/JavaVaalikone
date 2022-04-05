@@ -44,8 +44,8 @@ div {
 	font-size: 20px;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	width: 200px;
-	margin-left: 25px;
+	width: 205px;
+	margin-left: 5px;
 	float: left;
 }
 
@@ -59,7 +59,11 @@ div {
 	font-size: 20px;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	width: 200px;
-	margin-left: 25px;
+	width: 205px;
+	margin-left: 10px;
 	float: left;
+}
+button:hover {
+	background-color: #d35400;
+	color: white;
 }
