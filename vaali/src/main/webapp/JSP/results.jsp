@@ -20,7 +20,7 @@
 	</form>
 
 	<form>
-		<button type="button" class=backbutton onclick="history.back()">Edit answers</button>
+		<button type="button" class=backbutton onclick="history.back()">Return to questions</button>
 	</form>
 	<br>
 	<br>
