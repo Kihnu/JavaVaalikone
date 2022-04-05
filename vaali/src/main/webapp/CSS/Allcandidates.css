@@ -141,24 +141,21 @@ a.infobutton {
 }
 
 .exitbutton {
-
 	font-family: helvetica;
 	border: none;
 	color: black;
 	background-color: orange;
 	padding: 10px 15px;
 	text-decoration: none;
-	display: inline-block;
 	font-size: 20px;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	margin: 1px -30px;
+	width: 205px;
+	margin-left: 5px;
 	float: left;
-
-	
 }
 
-.add {
+.addbutton {
 	font-family: helvetica;
 	border: none;
 	color: black;
@@ -168,8 +165,8 @@ a.infobutton {
 	font-size: 20px;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	width: 200px;
-	margin-left: 50px;
+	width: 205px;
+	margin-left: 10px;
 	float: left;
 }
 
