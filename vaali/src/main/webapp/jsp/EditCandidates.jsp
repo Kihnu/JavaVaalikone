@@ -18,6 +18,11 @@
 		<button type="submit" class=exitbutton>To Admin Page</button>
 	</form>
 
+	<form action="../jsp/AddCandidateJSP.jsp">
+		<button type="submit" class=addbutton>Add candidate</button>
+	</form>
+	<br>
+
 	<h1>Edit Candidates</h1>
 
 	<c:forEach var="candidates" items="${requestScope.candidates}">

@@ -219,6 +219,8 @@ public class Dao {
 			stmt.executeUpdate(sql);
 			sql="delete from candidates where candidate_id=" + id;
 			stmt.executeUpdate(sql);
+			sql="alter table candidates auto_increment = 1";
+			stmt.executeUpdate(sql);
 			return readAllCandidates();
 		}
 		catch(SQLException e) {
@@ -250,9 +252,35 @@ public class Dao {
 			System.out.println("Read all comparisons: " + e.getMessage());
 			return null;
 		}
-
 	}
-
-
 	
+//	public ArrayList<Candidates> addCandidate(String surname, String firstname, int age, String party, String profession, String why, String what, int vote_nro) {
+//		try {
+//			String sql = "";
+//			PreparedStatement stmt = conn.prepareStatement(sql);
+//			sql = "use vaalikone";
+//			stmt.executeUpdate(sql);
+//			sql = "INSERT INTO candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"" + surname + "\", \"" + firstname + "\", " + age + ", \"" + party + "\", \"" + profession + "\", \"" + why + "\", \"" + what + "\", " + vote_nro + ");";
+//			stmt.executeUpdate(sql);
+//			return readAllCandidates();
+//		} catch (SQLException e) {
+//			System.out.println("Add candidate: " + e.getMessage());
+//			return null;
+//		}
+//	}
+	
+	public ArrayList<Candidates> addCandidate(String surname, String firstname, int age, String party, String profession, String why, String what, int vote_nro) {
+		try {
+			String sql = "";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			sql = "use vaalikone";
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"" + surname + "\", \"" + firstname + "\", " + age + ", \"" + party + "\", \"" + profession + "\", \"" + why + "\", \"" + what + "\", " + vote_nro + ");";
+			stmt.executeUpdate(sql);
+			return readAllCandidates();
+		} catch (SQLException e) {
+			System.out.println("Add candidate: " + e.getMessage());
+			return null;
+		}
+	}
 }
