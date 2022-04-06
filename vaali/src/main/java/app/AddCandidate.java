@@ -79,7 +79,7 @@ public class AddCandidate extends HttpServlet {
 		
 
 		if (dao.getConnection()) {
-			dao.addCandidate(surname, firstname, age_i, party, profession, why, what, vote_i);}
+			dao.addCandidate(surname, firstname, age_i, party, profession, why, what, vote_i);
 			
 			
 			
@@ -108,7 +108,7 @@ public class AddCandidate extends HttpServlet {
 			
 			
 			
-		else {
+		}else {
 			System.out.println("No connection to database");
 		}
 		
