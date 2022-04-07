@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Random;
 
 import data.AnswersC;
 import data.Candidates;
@@ -105,6 +106,7 @@ public class Dao {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			ResultSet RS=pstmt.executeQuery();
+			// Tietyn kandidaatin tiedot
 			while (RS.next()) {
 				c = new Candidates();
 				c.setId(RS.getInt("candidate_id"));
@@ -269,5 +271,16 @@ public class Dao {
 			System.out.println("Add candidate: " + e.getMessage());
 			return null;
 		}
+	
 	}
+
+
+	
+	
+
+	
+	
+		
+		
+
 }

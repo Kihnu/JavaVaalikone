@@ -29,7 +29,12 @@
 				<br>
 				<br>
 				<p class="number">${questions.id}/${questionlist.size()}</p>
-				<br>
+
+
+			 <br> <br>
+
+
+
 				<div class="question">${questions.question}
 					<br> <br>
 				</div>
@@ -65,10 +70,13 @@
 			</c:forEach>
 
 			<br> <br>
+
 		</div>
+
 		<p>
 			<input type="submit" value="Submit your answers" class="button">
 		</p>
+
 	</form>
 <!-- 	<form action="/Results"> -->
 <!-- 		<button type="submit" class="button">Submit your answers</button> -->

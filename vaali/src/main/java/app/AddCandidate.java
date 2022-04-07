@@ -1,7 +1,12 @@
 package app;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.Dao;
 import data.Candidates;
+import data.Questions;
 
 /**
  * Servlet implementation class AddCandidate
@@ -61,10 +67,68 @@ public class AddCandidate extends HttpServlet {
 		
 		int age_i = Integer.parseInt(age);
 		int vote_i = Integer.parseInt(vote);
+		
+
+		
 
 		if (dao.getConnection()) {
 			dao.addCandidate(surname, firstname, age_i, party, profession, why, what, vote_i);
-		} else {
+		
+		
+			
+			
+			
+			
+			
+			
+			//tästä alkaa janeten sähläys
+			
+			ArrayList<Questions> questionsList = dao.readAllQuestions(); 
+			ArrayList<Candidates> candidatesList =  dao.readAllCandidates(); 
+			
+			int cand = candidatesList.size()+1;
+			int ques;
+			String dbURL = "jdbc:mysql://localhost:3306/";
+			String username = "user";
+			String password = "password";
+			
+			Random rand = new Random(); 
+	
+			if (cand == candidatesList.size()+1) {  
+				for (ques = 1; ques < questionsList.size()+1; ques++) {
+					
+					try {
+					int r = rand.nextInt(5) + 1;
+				
+			
+					
+			
+			Connection conn = DriverManager.getConnection(dbURL, username, password);
+		
+			String sql = "use vaalikone";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO answers (candidate_id,question_id, answer_int) VALUES ("+cand+"," + ques +", " + r + ");";
+			stmt.executeUpdate(sql);
+			
+			
+					} catch (SQLException e) {
+					System.out.println("Answers " + cand + " - " + ques + ": " + e.getMessage());
+					
+					}
+			
+			
+			
+			
+			
+			
+			
+			
+				}
+			
+			
+			
+		}else {
 			System.out.println("No connection to database");
 		}
 		
@@ -81,5 +145,7 @@ public class AddCandidate extends HttpServlet {
 		rd.forward(request, response);
 
 	}
+
+}
 
 }
