@@ -109,6 +109,10 @@ public class AddCandidate extends HttpServlet {
 					}
 
 				}
+			} catch (SQLException e1) {
+				System.out.println("insert: " + e1.getMessage());
+				
+			}
             
 			ArrayList<Candidates> candidates = null;
 			if (dao.getConnection()) {
@@ -124,5 +128,4 @@ public class AddCandidate extends HttpServlet {
 		}
 
 	}
-
 }
