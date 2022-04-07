@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Random;
 
 import data.AnswersC;
 import data.Candidates;
@@ -220,6 +221,8 @@ public class Dao {
 			stmt.executeUpdate(sql);
 			sql="delete from candidates where candidate_id=" + id;
 			stmt.executeUpdate(sql);
+			sql="alter table candidates auto_increment = 1";
+			stmt.executeUpdate(sql);
 			return readAllCandidates();
 		}
 		catch(SQLException e) {
@@ -245,15 +248,74 @@ public class Dao {
 				list.add(c);
 			}
 			sql = "select * from comparison order by average desc;";
-			System.out.println("Comparison luettu");
 			return list;
 		} catch (SQLException e) {
 			System.out.println("Read all comparisons: " + e.getMessage());
 			return null;
 		}
-
+	}
+	
+	public ArrayList<Candidates> addCandidate(String surname, String firstname, int age, String party, String profession, String why, String what, int vote_nro) {
+		try {
+			String sql = "";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			sql = "use vaalikone";
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"" + surname + "\", \"" + firstname + "\", " + age + ", \"" + party + "\", \"" + profession + "\", \"" + why + "\", \"" + what + "\", " + vote_nro + ");";
+			stmt.executeUpdate(sql);
+			return readAllCandidates();
+		} catch (SQLException e) {
+			System.out.println("Add candidate: " + e.getMessage());
+			return null;
+		}
+	
 	}
 
 
 	
+	public ArrayList<AnswersC>addAnswersC(int question_id, int answer_int) {
+		
+		ArrayList<Questions> questionsList = readAllQuestions(); 
+		ArrayList<Candidates> candidatesList =  readAllCandidates(); 
+		
+		int cand = candidatesList.size()+1;
+		int ques;
+		
+		Random rand = new Random(); 
+	
+		
+		
+		
+		
+		if (cand == candidatesList.size()+1) {  
+			for (ques = 1; ques < questionsList.size()+1; ques++) {
+				
+				try {
+				int r = rand.nextInt(5) + 1;
+			
+		
+		String sql = "";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		sql = "use vaalikone";
+		stmt.executeUpdate(sql);
+		sql = "INSERT INTO answers (question_id, answer_int) VALUES (" + ques +", " + r + ");";
+		stmt.executeUpdate(sql);
+		
+		
+				} catch (SQLException e) {
+				System.out.println("Answers " + cand + " - " + ques + ": " + e.getMessage());
+				
+				}
+		
+		
+
+		
+	}
+
+	
+		}
+		return null;
+		
+		}
+
 }

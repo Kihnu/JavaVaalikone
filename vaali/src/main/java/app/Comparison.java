@@ -42,12 +42,9 @@ public class Comparison extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
-		RequestDispatcher rd=request.getRequestDispatcher("/jsp/results.jsp");
-		rd.forward(request, response);
-		// ehdokkaiden vastaustietokanta
+
 		
 	}
 
@@ -57,7 +54,7 @@ public class Comparison extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		int number;
 
 		ArrayList<Questions> questionlist = null;
@@ -136,7 +133,9 @@ public class Comparison extends HttpServlet {
 			dao.addComparison(x+1, average);
 			sum = 0;
 		}
-		
+		RequestDispatcher rd=request.getRequestDispatcher("Results");
+		rd.forward(request, response);
+		// ehdokkaiden vastaustietokanta
 		
 		// request.setAttribute("AnswersC", candidateanswers);
 		doGet(request, response);

@@ -15,15 +15,14 @@
 		<button type="submit" class=exitbutton>Back</button>
 	</form>
 	<br>
-	<hr class="solid">
 	<div class="allcandidates">
-			<h1>Update information</h1>
+		<h1>Update information</h1>
 		<div class="formi">
 			<form action="/UpdateCandidate" method="post">
 				<input hidden=hidden type="text" name="id"
 					value="${requestScope.candidate.id}" readonly /> <br> <label>First
 					name: </label> <input type="text" name="firstname"
-					value="${requestScope.candidate.firstname}" /><br> <label>Surname
+					value="${requestScope.candidate.firstname}" /><br> <label>Surname:
 				</label> <input type="text" name="surname"
 					value="${requestScope.candidate.surname}" /><br> <label>Voting
 					number: </label> <input type="number" name="vote"
@@ -33,26 +32,28 @@
 				</label> <input type="text" name="party"
 					value="${requestScope.candidate.party}" /><br> <label>Profession:
 				</label> <input type="text" name="pro"
-					value="${requestScope.candidate.profession}" /><br> <label style="transform: translateY(-25%);">Why
-					are you running? </label>
-				<textarea rows="3" cols="55" name="why" >${requestScope.candidate.why}</textarea>
-				<br> <br><label>What do you want when elected? </label>
+					value="${requestScope.candidate.profession}" /><br> <label
+					style="transform: translateY(-25%);">Why are you running? </label>
+				<textarea rows="3" cols="55" name="why">${requestScope.candidate.why}</textarea>
+				<br> <br>
+				<label>What do you want when elected? </label>
 				<textarea rows="3" cols="55" name="what">${requestScope.candidate.what}</textarea>
-				<br><br>
+				<br>
 				<button type="submit" class="button">Edit</button>
 			</form>
-	
+
 			<form action="/DeleteCandidate" method="post">
 				<input hidden=hidden name="id" value="${requestScope.candidate.id}"
 					readonly />
 				<button type="submit" class="button"
 					onclick="return confirm('Are you sure you want to delete this candidate?');">Delete
 					candidate</button>
-					<br>
+				<br>
+				<br>
+				<br>
 			</form>
 		</div>
-		<br>
-		<br>
+		<br> <br>
 
 	</div>
 
