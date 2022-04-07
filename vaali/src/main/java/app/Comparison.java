@@ -133,6 +133,7 @@ public class Comparison extends HttpServlet {
 			dao.addComparison(x+1, average);
 			sum = 0;
 		}
+		
 		RequestDispatcher rd=request.getRequestDispatcher("Results");
 		rd.forward(request, response);
 		// ehdokkaiden vastaustietokanta
