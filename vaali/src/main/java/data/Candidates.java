@@ -10,6 +10,7 @@ public class Candidates {
 	private String why;
 	private String what;
 	private int vote_nro;
+	
 	public Candidates(String id, String firstname, String surname, String party, String age, String profession, String why, String what, String vote_nro) {
 		setId(id);
 		this.firstname=firstname;

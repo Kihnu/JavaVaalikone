@@ -43,16 +43,17 @@ public class Results extends HttpServlet {
 			throws ServletException, IOException {
 
 		ArrayList<Comparison> comparison = null;
-		ArrayList<Candidates> candidates = null;
+		//ArrayList<Candidates> candidates = null;
 
 		if (dao.getConnection()) {
 			comparison = dao.readAllComparison();
-			candidates = dao.readAllCandidates();
+			//candidates = dao.readAllCandidates();
 		} else {
 			System.out.println("No connection to database");
 		}
+		
 		request.setAttribute("comparison", comparison);
-		request.setAttribute("candidates", candidates);
+	//	request.setAttribute("candidates", candidates);
 
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/results.jsp");
 		rd.forward(request, response);

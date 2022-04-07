@@ -5,8 +5,11 @@ public class Comparison {
 	private int id;
 	private int comparisonID;
 	private int comparisonPercent;
-
-
+	private String firstname;
+	private String lastname;
+	private int vote;
+	private String party;
+	
 	public int getComparisonID() {
 		return comparisonID;
 	}
@@ -29,6 +32,38 @@ public class Comparison {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public int getVote() {
+		return vote;
+	}
+
+	public void setVote(int vote) {
+		this.vote = vote;
+	}
+
+	public String getParty() {
+		return party;
+	}
+
+	public void setParty(String party) {
+		this.party = party;
 	}
 
 
