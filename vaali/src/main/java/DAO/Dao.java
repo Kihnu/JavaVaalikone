@@ -162,7 +162,6 @@ public class Dao {
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()) {
 				list.add(RS.getInt("answer_int"));
-
 			}
 			return list;
 		} catch (SQLException e) {
