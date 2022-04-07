@@ -239,15 +239,18 @@ public class Dao {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			sql = "use vaalikone";
 			statement.executeUpdate(sql);
-			ResultSet RS = stmt.executeQuery("select * from comparison");
+			ResultSet RS = stmt.executeQuery("select * from candidates join comparison on candidates.candidate_id = comparison.comp_id order by average desc;");
 			while (RS.next()) {
 				Comparison c = new Comparison();
 				c.setComparisonID(RS.getInt("comp_id"));
 				c.setId(RS.getInt("candidate_id"));
 				c.setComparisonPercent(RS.getInt("average"));
+				c.setFirstname(RS.getString("firstname"));
+				c.setLastname(RS.getString("surname"));
+				c.setParty(RS.getString("party"));
+				c.setVote(RS.getInt("vote_nro"));
 				list.add(c);
 			}
-			sql = "select * from comparison order by average desc;";
 			return list;
 		} catch (SQLException e) {
 			System.out.println("Read all comparisons: " + e.getMessage());
@@ -273,49 +276,11 @@ public class Dao {
 
 
 	
-	public ArrayList<AnswersC>addAnswersC(int question_id, int answer_int) {
-		
-		ArrayList<Questions> questionsList = readAllQuestions(); 
-		ArrayList<Candidates> candidatesList =  readAllCandidates(); 
-		
-		int cand = candidatesList.size()+1;
-		int ques;
-		
-		Random rand = new Random(); 
+	
+
+	
 	
 		
 		
-		
-		
-		if (cand == candidatesList.size()+1) {  
-			for (ques = 1; ques < questionsList.size()+1; ques++) {
-				
-				try {
-				int r = rand.nextInt(5) + 1;
-			
-		
-		String sql = "";
-		PreparedStatement stmt = conn.prepareStatement(sql);
-		sql = "use vaalikone";
-		stmt.executeUpdate(sql);
-		sql = "INSERT INTO answers (question_id, answer_int) VALUES (" + ques +", " + r + ");";
-		stmt.executeUpdate(sql);
-		
-		
-				} catch (SQLException e) {
-				System.out.println("Answers " + cand + " - " + ques + ": " + e.getMessage());
-				
-				}
-		
-		
-
-		
-	}
-
-	
-		}
-		return null;
-		
-		}
 
 }

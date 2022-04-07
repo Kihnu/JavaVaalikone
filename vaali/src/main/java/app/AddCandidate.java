@@ -1,6 +1,7 @@
 package app;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -23,7 +24,7 @@ import data.Questions;
 public class AddCandidate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao;
-	
+
 	@Override
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/", "user", "password");
@@ -62,28 +63,60 @@ public class AddCandidate extends HttpServlet {
 		String what = request.getParameter("what");
 		String vote = request.getParameter("vote");
 		
-		
-		
-		
 		int age_i = Integer.parseInt(age);
 		int vote_i = Integer.parseInt(vote);
 		
-		int question_id;
-		int answer_int;
+
 		
-		question_id = Integer.parseInt(request.getParameter("question_id"));
-		answer_int = Integer.parseInt(request.getParameter("answer_int"));
-
-	
-
 
 		if (dao.getConnection()) {
 			dao.addCandidate(surname, firstname, age_i, party, profession, why, what, vote_i);
 		
-			dao.addAnswersC(question_id, answer_int);
-			
-			
 		
+			
+			
+			
+			
+			
+			
+			//tästä alkaa janeten sähläys
+			
+			ArrayList<Questions> questionsList = dao.readAllQuestions(); 
+			ArrayList<Candidates> candidatesList =  dao.readAllCandidates(); 
+			
+			int cand = candidatesList.size()+1;
+			int ques;
+			
+			Random rand = new Random(); 
+	
+			if (cand == candidatesList.size()+1) {  
+				for (ques = 1; ques < questionsList.size()+1; ques++) {
+					
+					try {
+					int r = rand.nextInt(5) + 1;
+				
+			
+			String sql = "use vaalikone";
+			PreparedStatement stmt = conn.prepareStatement(sql); //<--- en tiiä miten saan ton conn toimimaan
+			stmt.executeUpdate(sql);
+			sql = "INSERT INTO answers (candidate_id,question_id, answer_int) VALUES ("+cand+"," + ques +", " + r + ");";
+			stmt.executeUpdate(sql);
+			
+			
+					} catch (SQLException e) {
+					System.out.println("Answers " + cand + " - " + ques + ": " + e.getMessage());
+					
+					}
+			
+			
+			
+			
+			
+			
+			
+			
+				}
+			
 			
 			
 		}else {
@@ -106,3 +139,4 @@ public class AddCandidate extends HttpServlet {
 
 }
 
+}
