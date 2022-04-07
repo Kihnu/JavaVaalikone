@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.Dao;
-import data.Candidates;
+//import data.Candidates;
 import data.Comparison;
 
 /**
