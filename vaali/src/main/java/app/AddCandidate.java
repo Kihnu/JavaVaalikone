@@ -1,6 +1,8 @@
 package app;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -86,6 +88,9 @@ public class AddCandidate extends HttpServlet {
 			
 			int cand = candidatesList.size()+1;
 			int ques;
+			String dbURL = "jdbc:mysql://localhost:3306/";
+			String username = "user";
+			String password = "password";
 			
 			Random rand = new Random(); 
 	
@@ -96,8 +101,12 @@ public class AddCandidate extends HttpServlet {
 					int r = rand.nextInt(5) + 1;
 				
 			
+					
+			
+			Connection conn = DriverManager.getConnection(dbURL, username, password);
+		
 			String sql = "use vaalikone";
-			PreparedStatement stmt = conn.prepareStatement(sql); //<--- en tiiä miten saan ton conn toimimaan
+			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.executeUpdate(sql);
 			sql = "INSERT INTO answers (candidate_id,question_id, answer_int) VALUES ("+cand+"," + ques +", " + r + ");";
 			stmt.executeUpdate(sql);
