@@ -69,15 +69,8 @@ public class AddCandidate extends HttpServlet {
 
 		if (dao.getConnection()) {
 			dao.addCandidate(surname, firstname, age_i, party, profession, why, what, vote_i);
-			
-			
-			
-			
-			
-			
-			
 
-			// t‰st‰ alkaa janeten s‰hl‰ys
+			// t√§st√§ alkaa janeten s√§hl√§ys
 
 			ArrayList<Questions> questionsList = dao.readAllQuestions();
 			ArrayList<Candidates> candidatesList = dao.readAllCandidates();
@@ -87,39 +80,40 @@ public class AddCandidate extends HttpServlet {
 			String dbURL = "jdbc:mysql://localhost:3306/";
 			String username = "user";
 			String password = "password";
-
-			Random rand = new Random();
-
+			Connection conn;
 			
+			try {
+				conn = DriverManager.getConnection(dbURL, username, password);
+				String sql = "";
+				PreparedStatement stmt = conn.prepareStatement(sql);
+				sql = "use vaalikone";
+				stmt.executeUpdate(sql);
+				
+				Random rand = new Random();
+
 				for (ques = 1; ques < questionsList.size() + 1; ques++) {
 
 					try {
-						
 						int r = rand.nextInt(5) + 1;
 
-						Connection conn = DriverManager.getConnection(dbURL, username, password);
-
-						String sql = "use vaalikone";
-						PreparedStatement stmt = conn.prepareStatement(sql);
+						sql = "INSERT INTO answers (candidate_id, question_id, answer_int) VALUES (" + cand + "," + ques
+								+ ", " + r + ");";
 						stmt.executeUpdate(sql);
-						sql = "INSERT INTO answers (candidate_id,question_id, answer_int) VALUES (" + cand + "," + ques + ", " + r + ");";
 						
-						stmt.executeUpdate(sql);
 						sql = "INSERT INTO comparison (candidate_id, average) VALUES (" + cand + ", 0)";
 						stmt.executeUpdate(sql);
-						
-						
-						
-						
+
 					} catch (SQLException e) {
-						System.out.println("Ehdokas nro: " + cand + " Kysymysnro: " + ques +  " valitus:  " + e.getMessage());
+						System.out.println("Candidate: " + cand + " Question: " + ques + ": " + e.getMessage());
 
 					}
 
 				}
-
-			
-
+			} catch (SQLException e1) {
+				System.out.println("insert: " + e1.getMessage());
+				
+			}
+            
 			ArrayList<Candidates> candidates = null;
 			if (dao.getConnection()) {
 				candidates = dao.readAllCandidates();
@@ -134,5 +128,4 @@ public class AddCandidate extends HttpServlet {
 		}
 
 	}
-
 }

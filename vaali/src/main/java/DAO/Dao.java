@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Random;
 
 import data.AnswersC;
 import data.Candidates;
@@ -162,7 +161,6 @@ public class Dao {
 			ResultSet RS=pstmt.executeQuery();
 			while (RS.next()) {
 				list.add(RS.getInt("answer_int"));
-
 			}
 			return list;
 		} catch (SQLException e) {

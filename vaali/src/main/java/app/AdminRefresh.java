@@ -101,11 +101,11 @@ public class AdminRefresh extends HttpServlet {
 				sql = "CREATE TABLE answers (answer_id int(5) NOT NULL AUTO_INCREMENT, candidate_id int(3) NOT NULL, "
 						+ "question_id int(3) NOT NULL, answer_int int(1) NOT NULL, answer_string varchar(600), PRIMARY KEY (answer_id));";
 				statement.executeUpdate(sql);
-				
+
 				// Vertailu tablen luonti
-				sql = "CREATE TABLE comparison (comp_id int(5) NOT NULL AUTO_INCREMENT, candidate_id int(3) NOT NULL, average int(3) NOT NULL, PRIMARY KEY (comp_id));"; 
+				sql = "CREATE TABLE comparison (comp_id int(5) NOT NULL AUTO_INCREMENT, candidate_id int(3) NOT NULL, average int(3) NOT NULL, PRIMARY KEY (comp_id));";
 				statement.executeUpdate(sql);
-				
+
 				// Candidates lisäys
 				sql = "INSERT INTO  candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"Duck\", \"Donald\", 36, \"Socialist\", \"Rubber bread\", \"In my opinion the amount of work an anthropomorphic animal has to do just to live their life normally is way too much.\", \"Something to occupy my feeble mind while I try to avoid working as much as I can.\", 313);";
 				statement.executeUpdate(sql);
@@ -180,30 +180,29 @@ public class AdminRefresh extends HttpServlet {
 				} else {
 					System.out.println("Nothing happened");
 				}
-				
-				
+
 				// Answers lisäys
 				Random rand = new Random();
 				questionsList = dao.readAllQuestions();
 				candidatesList = dao.readAllCandidates();
 				int cand;
 				int ques;
-				
-				for (cand = 1; cand < candidatesList.size()+1; cand++) {
-					for (ques = 1; ques < questionsList.size()+1; ques++) {
+
+				for (cand = 1; cand < candidatesList.size() + 1; cand++) {
+					for (ques = 1; ques < questionsList.size() + 1; ques++) {
 						try {
 							int r = rand.nextInt(5) + 1;
-							sql = "INSERT INTO answers (candidate_id, question_id, answer_int) VALUES (" + cand + ", " + ques +", " + r + ");";
+							sql = "INSERT INTO answers (candidate_id, question_id, answer_int) VALUES (" + cand + ", "
+									+ ques + ", " + r + ");";
 							statement.executeUpdate(sql);
 						} catch (SQLException e) {
 							System.out.println("Answers " + cand + " - " + ques + ": " + e.getMessage());
 						}
-						
+
 					}
 				}
-				
-				
-				for (cand = 1; cand < candidatesList.size()+1; cand++) {
+
+				for (cand = 1; cand < candidatesList.size() + 1; cand++) {
 					sql = "INSERT INTO comparison (candidate_id, average) VALUES (" + cand + ", 0)";
 					statement.executeUpdate(sql);
 				}
