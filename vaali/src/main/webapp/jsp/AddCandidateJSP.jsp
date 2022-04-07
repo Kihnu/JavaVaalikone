@@ -17,7 +17,7 @@
 			<label>First name: </label> <input type="text" name="firstname" value=""/><br> 
 			<label>Surname*: </label> <input type="text" name="surname" value="" required/><br> 
 			<label>Voting number*: </label> <input type="number" name="vote" value="" required/><br> 
-			<label>Age: </label> <input type="number" name="age" value="" /><br> 
+			<label>Age*: </label> <input type="number" name="age" value="" required/><br> 
 			<label>Party*: </label> <input type="text" name="party" value="" required/><br> 
 			<label>Profession: </label> <input type="text" name="pro" value="" /><br> 
 			<label style="transform: translateY(-25%);">Why are you running? </label>
