@@ -23,7 +23,7 @@ import data.Questions;
 public class AddCandidate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Dao dao;
-
+	
 	@Override
 	public void init() {
 		dao = new Dao("jdbc:mysql://localhost:3306/", "user", "password");
@@ -62,50 +62,28 @@ public class AddCandidate extends HttpServlet {
 		String what = request.getParameter("what");
 		String vote = request.getParameter("vote");
 		
+		
+		
+		
 		int age_i = Integer.parseInt(age);
 		int vote_i = Integer.parseInt(vote);
 		
+		int question_id;
+		int answer_int;
 		
-		
-		
-//		  Random rand = new Random(); 
-//		  ArrayList<Questions> questionsList = dao.readAllQuestions(); 
-//		  ArrayList<Candidates> candidatesList =  dao.readAllCandidates(); 
-//		  
-//		  int cand = 0;
-//		  int ques;
-		 
-		
-		
+		question_id = Integer.parseInt(request.getParameter("question_id"));
+		answer_int = Integer.parseInt(request.getParameter("answer_int"));
+
+	
+
 
 		if (dao.getConnection()) {
 			dao.addCandidate(surname, firstname, age_i, party, profession, why, what, vote_i);
+		
+			dao.addAnswersC(question_id, answer_int);
 			
 			
-			
-			
-//			if (cand == 1) {  // <--- tähän pitäs jotenkin saada se ehdokas joka on just luotu
-//				for (ques = 1; ques < questionsList.size()+1; ques++) {
-//					try {
-//						int r = rand.nextInt(5) + 1;
-//						
-//						
-//						
-//						sql = "INSERT INTO answers (question_id, answer_int) VALUES (" + ques +", " + r + ");";
-//						statement.executeUpdate(sql);
-//						// näistä kahdesta rivistä valittaa
-//
-//						
-//						
-//					} catch (SQLException e) {
-//						System.out.println("Answers " + cand + " - " + ques + ": " + e.getMessage());
-//					
-//					}
-//				}
-//			}
-				
-	
-			
+		
 			
 			
 		}else {
