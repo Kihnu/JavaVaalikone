@@ -70,7 +70,7 @@ public class AddCandidate extends HttpServlet {
 		if (dao.getConnection()) {
 			dao.addCandidate(surname, firstname, age_i, party, profession, why, what, vote_i);
 
-			// t‰st‰ alkaa janeten s‰hl‰ys
+			// t√§st√§ alkaa janeten s√§hl√§ys
 
 			ArrayList<Questions> questionsList = dao.readAllQuestions();
 			ArrayList<Candidates> candidatesList = dao.readAllCandidates();
@@ -80,7 +80,6 @@ public class AddCandidate extends HttpServlet {
 			String dbURL = "jdbc:mysql://localhost:3306/";
 			String username = "user";
 			String password = "password";
-
 			Connection conn;
 			
 			try {
@@ -110,12 +109,7 @@ public class AddCandidate extends HttpServlet {
 					}
 
 				}
-			} catch (SQLException e1) {
-				System.out.println("insert: " + e1.getMessage());
-			}
-
-			
-
+            
 			ArrayList<Candidates> candidates = null;
 			if (dao.getConnection()) {
 				candidates = dao.readAllCandidates();
