@@ -17,39 +17,27 @@
 </head>
 <body>
 
-
 	<form method="get" action="/index.html">
 		<button type="submit" class=exitbutton>Front Page</button>
 	</form>
 
-
 	<h2>QUESTIONS</h2>
-
-
 
 	<form action="/Comparison" method="POST">
 		<div class="vaihtoehdot">
 			<c:forEach var="questions" items="${requestScope.questionlist}">
-
-
-
 				<br>
 				<br>
 				<p class="number">${questions.id}/${questionlist.size()}</p>
-
 				<br>
-
-
 				<div class="question">${questions.question}
 					<br> <br>
-
 				</div>
 
 				<div class="radiogrp">
 					<input type="radio" name="answer${questions.id}" value="option1"
 						id="radio_1" required><label for="radio_1">Strongly
 						Disagree </label> <br> <br>
-
 				</div>
 				<div class="radiogrp">
 					<input type="radio" name="answer${questions.id}" value="option2"
@@ -78,10 +66,13 @@
 
 			<br> <br>
 		</div>
+		<p>
+			<input type="submit" value="Submit your answers" class="button">
+		</p>
 	</form>
-	<form action="/Results">
-		<button type="submit" class="button">Submit your answers</button>
-	</form>
+<!-- 	<form action="/Results"> -->
+<!-- 		<button type="submit" class="button">Submit your answers</button> -->
+<!-- 	</form> -->
 </body>
 
 </html>

@@ -19,8 +19,8 @@
 		<button type="submit" class=exitbutton>Front Page</button>
 	</form>
 
-	<form>
-		<button type="button" class=backbutton onclick="history.back()">Return to questions</button>
+	<form method="get" action="/AnsweringServlet">
+		<button type="submit" class=exitbutton>Back to Questions</button>
 	</form>
 	<br>
 	<br>
@@ -74,6 +74,5 @@
 			<hr class="solid">
 		</div>
 	</c:forEach>
-
 </body>
 </html>
