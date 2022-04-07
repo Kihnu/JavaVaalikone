@@ -15,7 +15,6 @@
 		<button type="submit" class=exitbutton>Back</button>
 	</form>
 	<br>
-	<hr class="solid">
 	<div class="allcandidates">
 		<h1>Update information</h1>
 		<div class="formi">
@@ -40,7 +39,6 @@
 				<label>What do you want when elected? </label>
 				<textarea rows="3" cols="55" name="what">${requestScope.candidate.what}</textarea>
 				<br>
-				<br>
 				<button type="submit" class="button">Edit</button>
 			</form>
 
@@ -50,6 +48,8 @@
 				<button type="submit" class="button"
 					onclick="return confirm('Are you sure you want to delete this candidate?');">Delete
 					candidate</button>
+				<br>
+				<br>
 				<br>
 			</form>
 		</div>

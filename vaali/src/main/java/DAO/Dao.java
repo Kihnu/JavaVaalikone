@@ -247,28 +247,12 @@ public class Dao {
 				list.add(c);
 			}
 			sql = "select * from comparison order by average desc;";
-			System.out.println("Comparison luettu");
 			return list;
 		} catch (SQLException e) {
 			System.out.println("Read all comparisons: " + e.getMessage());
 			return null;
 		}
 	}
-	
-//	public ArrayList<Candidates> addCandidate(String surname, String firstname, int age, String party, String profession, String why, String what, int vote_nro) {
-//		try {
-//			String sql = "";
-//			PreparedStatement stmt = conn.prepareStatement(sql);
-//			sql = "use vaalikone";
-//			stmt.executeUpdate(sql);
-//			sql = "INSERT INTO candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"" + surname + "\", \"" + firstname + "\", " + age + ", \"" + party + "\", \"" + profession + "\", \"" + why + "\", \"" + what + "\", " + vote_nro + ");";
-//			stmt.executeUpdate(sql);
-//			return readAllCandidates();
-//		} catch (SQLException e) {
-//			System.out.println("Add candidate: " + e.getMessage());
-//			return null;
-//		}
-//	}
 	
 	public ArrayList<Candidates> addCandidate(String surname, String firstname, int age, String party, String profession, String why, String what, int vote_nro) {
 		try {
