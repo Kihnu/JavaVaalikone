@@ -237,15 +237,18 @@ public class Dao {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			sql = "use vaalikone";
 			statement.executeUpdate(sql);
-			ResultSet RS = stmt.executeQuery("select * from comparison");
+			ResultSet RS = stmt.executeQuery("select * from candidates join comparison on candidates.candidate_id = comparison.comp_id order by average desc;");
 			while (RS.next()) {
 				Comparison c = new Comparison();
 				c.setComparisonID(RS.getInt("comp_id"));
 				c.setId(RS.getInt("candidate_id"));
 				c.setComparisonPercent(RS.getInt("average"));
+				c.setFirstname(RS.getString("firstname"));
+				c.setLastname(RS.getString("surname"));
+				c.setParty(RS.getString("party"));
+				c.setVote(RS.getInt("vote_nro"));
 				list.add(c);
 			}
-			sql = "select * from comparison order by average desc;";
 			return list;
 		} catch (SQLException e) {
 			System.out.println("Read all comparisons: " + e.getMessage());

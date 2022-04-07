@@ -26,42 +26,42 @@
 	<br>
 	<h1>The results are in:</h1>
 
-	<c:forEach var="candidates" items="${requestScope.candidates}"
+	<c:forEach var="candidates" items="${requestScope.comparison}"
 		varStatus="status">
 		<div class="cand">
 			<!-- Kandidaatin koko nimi -->
-			<div class="name">${candidates.firstname} ${candidates.surname}</div>
+			<div class="name">${comparison[status.index].firstname} ${comparison[status.index].lastname}</div>
 			<!-- Kandidaatin puolue -->
 			<div class="party">${candidates.party}</div>
 			<!-- Kandidaatin numero -->
-			<div class="candidateNum">Candidate #${candidates.vote_nro}</div>
+			<div class="candidateNum">Candidate #${comparison[status.index].vote}</div>
 			<div>
 				<br>
 				<%!String color;%>
 				<c:choose>
-					<c:when test="${comparison[status.index].comparisonPercent <= 80}">
+					<c:when test="${comparison[status.index].comparisonPercent <= 20}">
 						<%
-							color = "#86BF5E";
-						%>
-					</c:when>
-					<c:when test="${comparison[status.index].comparisonPercent <= 60}">
-						<%
-							color = "#FFFB00";
+							color = "#FF0000"; // punainen
 						%>
 					</c:when>
 					<c:when test="${comparison[status.index].comparisonPercent <= 40}">
 						<%
-							color = "#FFA200";
+							color = "#E66900"; // oranssi
 						%>
 					</c:when>
-					<c:when test="${comparison[status.index].comparisonPercent <= 20}">
+					<c:when test="${comparison[status.index].comparisonPercent <= 60}">
 						<%
-							color = "#FF0000";
+							color = "#D9CA00"; // keltainen
+						%>
+					</c:when>
+					<c:when test="${comparison[status.index].comparisonPercent <= 80}">
+						<%
+							color = "#86BF5E"; // hieman vihreä
 						%>
 					</c:when>
 					<c:otherwise>
 						<%
-							color = "#00FF00";
+							color = "#00FF00"; // vihreä
 						%>
 					</c:otherwise>
 				</c:choose>

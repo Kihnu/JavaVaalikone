@@ -68,6 +68,7 @@ public class Comparison extends HttpServlet {
 
 		if (dao.getConnection()) {
 			questionlist = dao.readAllQuestions();
+			candidates = dao.readAllCandidates();
 		} else {
 			System.out.println("No connection to database");
 		}
@@ -90,7 +91,6 @@ public class Comparison extends HttpServlet {
 		}
 
 		int id;
-		candidates = dao.readAllCandidates();
 
 		for (id = 1; id < candidates.size() + 1; id++) {
 			candidatelist = new ArrayList<>();
@@ -99,9 +99,9 @@ public class Comparison extends HttpServlet {
 				candidatelist.add(questions.getId() + j, candidateanswers.get(j));
 			}
 			lists.add(candidatelist);
-			System.out.println("Ehdokas " + id + " vastaukset: " + lists.get(id - 1));
+			//System.out.println("Ehdokas " + id + " vastaukset: " + lists.get(id - 1));
 		}
-		System.out.println("Kayttajan vastaukset: " + userlist);
+		//System.out.println("Kayttajan vastaukset: " + userlist);
 
 		int user_num;
 		int candid_num;
@@ -127,9 +127,9 @@ public class Comparison extends HttpServlet {
 			for (z = 0; z < comparison.size(); z++) {
 				sum = sum + comparison.get(z);
 			}
-			System.out.println("SUMMA :" + sum);
+			//System.out.println("SUMMA :" + sum);
 			int average = sum / comparison.size();
-			System.out.println("TAMA ON TULOSSA DATABASEE: " + (x+1) + " - " + average + " %");
+			//System.out.println("TAMA ON TULOSSA DATABASEE: " + (x+1) + " - " + average + " %");
 			dao.addComparison(x+1, average);
 			sum = 0;
 		}
