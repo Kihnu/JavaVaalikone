@@ -1,6 +1,7 @@
 package app;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.Dao;
-import data.Candidates;
+import data.SingleCandidateAnswers;
 
 /**
  * Servlet implementation class SingleCandidate
@@ -43,18 +44,21 @@ public class SingleCandidate extends HttpServlet {
 		
 		// Ottaa napista inputin ja sen arvolla saa ehdokkaan numeron. Tällä tiedolla voi etsiä kandidaatin kysymykset
 		String id=request.getParameter("id");
-		Candidates candidate = null;
-
+		ArrayList<SingleCandidateAnswers> singleCandidate = null;
+		
+		
 		if (dao.getConnection()) {
-			candidate = dao.readCertainCandidate(id);
 			// daosta kandidaatille kysymykset
 			// daosta tietyn kandidaatin vastaukset kysymyksiin
+			singleCandidate = dao.readCertainCandidates(id);
+			// System.out.println(id);
+			
 		} else {
 			System.out.println("No connection to database");
 		}
 	
-		request.setAttribute("candidate", candidate);
-		
+		request.setAttribute("singleCandidate", singleCandidate);
+		//System.out.println(singleCandidate);
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/SingleCandidateJSP.jsp");
 		rd.forward(request, response);
 	}

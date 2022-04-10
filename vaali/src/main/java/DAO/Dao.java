@@ -12,6 +12,7 @@ import data.Candidates;
 import data.Questions;
 import data.Comparison;
 import java.sql.Connection;
+import data.SingleCandidateAnswers;
 
 public class Dao {
 	private String user;
@@ -104,7 +105,7 @@ public class Dao {
 			sql = "select * from candidates where candidate_id=?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
-			ResultSet RS=pstmt.executeQuery();
+			ResultSet RS = pstmt.executeQuery();
 			// Tietyn kandidaatin tiedot
 			while (RS.next()) {
 				c = new Candidates();
@@ -148,7 +149,7 @@ public class Dao {
 		}
 
 	}
-	
+
 	public ArrayList<Integer> readCertainAnswersC(int id) {
 		ArrayList<Integer> list = new ArrayList<>();
 		try {
@@ -158,7 +159,7 @@ public class Dao {
 			sql = "select * from answers where candidate_id = ?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);
-			ResultSet RS=pstmt.executeQuery();
+			ResultSet RS = pstmt.executeQuery();
 			while (RS.next()) {
 				list.add(RS.getInt("answer_int"));
 			}
@@ -178,20 +179,20 @@ public class Dao {
 			stmt.executeUpdate(sql);
 			sql = "update comparison set average = " + average + " where candidate_id = " + candidate + ";";
 			stmt.executeUpdate(sql);
-			} catch (SQLException e) {
-				System.out.println("comparison: " + e.getMessage());
-				return null;
-			}
+		} catch (SQLException e) {
+			System.out.println("comparison: " + e.getMessage());
+			return null;
+		}
 		return list;
 	}
-	
+
 	public ArrayList<Candidates> updateCandidate(Candidates c) {
 		try {
 			Statement stmt = conn.createStatement();
 			String sql = "use vaalikone;";
 			stmt.executeUpdate(sql);
-			sql="update candidates set firstname=?, surname=?, age=?, party=?, profession=?, why=?, what=?, vote_nro=? where candidate_id=?";
-			PreparedStatement pstmt=conn.prepareStatement(sql);
+			sql = "update candidates set firstname=?, surname=?, age=?, party=?, profession=?, why=?, what=?, vote_nro=? where candidate_id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, c.getfirstname());
 			pstmt.setString(2, c.getsurname());
 			pstmt.setInt(3, c.getAge());
@@ -203,32 +204,30 @@ public class Dao {
 			pstmt.setInt(9, c.getId());
 			pstmt.executeUpdate();
 			return readAllCandidates();
-		}
-		catch(SQLException e) {
+		} catch (SQLException e) {
 			System.out.println("update candidate: " + e.getMessage());
 			return null;
 		}
 	}
-	
+
 	public ArrayList<Candidates> deleteCandidate(String id) {
 		try {
 			Statement stmt = conn.createStatement();
 			String sql = "use vaalikone;";
 			stmt.executeUpdate(sql);
-			sql="delete from answers where candidate_id=" + id;
+			sql = "delete from answers where candidate_id=" + id;
 			stmt.executeUpdate(sql);
-			sql="delete from candidates where candidate_id=" + id;
+			sql = "delete from candidates where candidate_id=" + id;
 			stmt.executeUpdate(sql);
-			sql="alter table candidates auto_increment = 1";
+			sql = "alter table candidates auto_increment = 1";
 			stmt.executeUpdate(sql);
 			return readAllCandidates();
-		}
-		catch(SQLException e) {
+		} catch (SQLException e) {
 			System.out.println("Deletoi: " + e.getMessage());
 			return null;
 		}
 	}
-	
+
 	public ArrayList<Comparison> readAllComparison() {
 		ArrayList<Comparison> list = new ArrayList<>();
 		try {
@@ -237,7 +236,8 @@ public class Dao {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			sql = "use vaalikone";
 			statement.executeUpdate(sql);
-			ResultSet RS = stmt.executeQuery("select * from candidates join comparison on candidates.candidate_id = comparison.comp_id order by average desc;");
+			ResultSet RS = stmt.executeQuery(
+					"select * from candidates join comparison on candidates.candidate_id = comparison.comp_id order by average desc;");
 			while (RS.next()) {
 				Comparison c = new Comparison();
 				c.setComparisonID(RS.getInt("comp_id"));
@@ -255,30 +255,53 @@ public class Dao {
 			return null;
 		}
 	}
-	
-	public ArrayList<Candidates> addCandidate(String surname, String firstname, int age, String party, String profession, String why, String what, int vote_nro) {
+
+	public ArrayList<Candidates> addCandidate(String surname, String firstname, int age, String party,
+			String profession, String why, String what, int vote_nro) {
 		try {
 			String sql = "";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			sql = "use vaalikone";
 			stmt.executeUpdate(sql);
-			sql = "INSERT INTO candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\"" + surname + "\", \"" + firstname + "\", " + age + ", \"" + party + "\", \"" + profession + "\", \"" + why + "\", \"" + what + "\", " + vote_nro + ");";
+			sql = "INSERT INTO candidates (surname, firstname, age, party, profession, why, what, vote_nro) VALUES (\""
+					+ surname + "\", \"" + firstname + "\", " + age + ", \"" + party + "\", \"" + profession + "\", \""
+					+ why + "\", \"" + what + "\", " + vote_nro + ");";
 			stmt.executeUpdate(sql);
 			return readAllCandidates();
 		} catch (SQLException e) {
 			System.out.println("Add candidate: " + e.getMessage());
 			return null;
 		}
-	
+
 	}
 
+	// Tietylle kandidaatille kysymykset ja niille vastaukset
+	public ArrayList<SingleCandidateAnswers> readCertainCandidates(String id) {
+		ArrayList<SingleCandidateAnswers> list = new ArrayList<>();
+		try {
+			Statement stmt = conn.createStatement();
+			String sql = "";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			sql = "use vaalikone";
+			statement.executeUpdate(sql);
+			// Right join SQL
+			ResultSet RS = stmt.executeQuery(
+					"select questions.question, answers.answer_int FROM answers RIGHT JOIN questions ON answers.question_id = questions.question_id WHERE candidate_id = "
+							+ id + ";");
+			while (RS.next()) {
+				SingleCandidateAnswers c = new SingleCandidateAnswers();
+				c.setQuestion(RS.getString("question"));
+				c.setAnswer_int(RS.getInt("answer_int"));
+				// System.out.println(c);
+				list.add(c);
+			}
+			// System.out.println(list);
+			return list;
+		} catch (SQLException e) {
+			System.out.println("Certain candidates questions + answers: " + e.getMessage());
+			return null;
+		}
 
-	
-	
-
-	
-	
-		
-		
+	}
 
 }
