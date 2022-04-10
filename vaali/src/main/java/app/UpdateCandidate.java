@@ -24,7 +24,11 @@ public class UpdateCandidate extends HttpServlet {
 
 	@Override
 	public void init() {
-		dao = new Dao("jdbc:mysql://localhost:3306/", "user", "password");
+		String url = getServletContext().getInitParameter("connection_url_admin");
+		String user = getServletContext().getInitParameter("username");
+		String password = getServletContext().getInitParameter("passwd");
+		
+		dao = new Dao(url, user, password);
 	}
     public UpdateCandidate() {
         super();

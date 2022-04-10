@@ -25,9 +25,6 @@ public class AllCandidatesServlet extends HttpServlet {
 	private DAO.Dao dao=null;
 	
 	public void init() {
-
-		// connection_url_admin = jdbc:mysql://localhost:3306
-		// connection_url = jdbc:mysql://localhost:3306/vaalikone
 		String url = getServletContext().getInitParameter("connection_url");
 		String user = getServletContext().getInitParameter("username");
 		String password = getServletContext().getInitParameter("passwd");
