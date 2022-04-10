@@ -15,11 +15,11 @@
 
 </head>
 <form method="get" action="/index.html">
-		<button type="submit" class=exitbutton>Front Page</button>
-	</form>
+	<button type="submit" class=exitbutton>Front Page</button>
+</form>
 <body>
-	
-	
+
+
 	<Br>
 	<Br>
 
@@ -50,15 +50,16 @@
 							<img src="/images/kuva<%=j%>.png"> <Br> Election
 							number: ${candidates.vote_nro} <Br> Party:
 							${candidates.party} <Br> <Br>
-						</div>
-						<form action="/SingleCandidate">
-							<button class=infobutton name="info<%=i%>" type="submit">More
-								information</button>
-						</form> <br> <br> <br>
+						</div> <a href="/SingleCandidate?id=${candidates.id}" class="infobutton">More information</a> <br> <br> <br> <br>
 
 					</td>
 
 				</tr>
+
+				<%-- <form action="/SingleCandidate?id=${candidates.id}">
+					<button class=infobutton type="submit">More
+						information</button>
+				</form> --%>
 
 
 				<%
