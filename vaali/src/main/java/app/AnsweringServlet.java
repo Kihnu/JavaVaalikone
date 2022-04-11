@@ -24,8 +24,6 @@ public class AnsweringServlet extends HttpServlet {
 
 	@Override
 	public void init() {
-		// connection_url_admin = jdbc:mysql://localhost:3306
-		// connection_url = jdbc:mysql://localhost:3306/vaalikone
 		String url = getServletContext().getInitParameter("connection_url_admin");
 		String user = getServletContext().getInitParameter("username");
 		String password = getServletContext().getInitParameter("passwd");
