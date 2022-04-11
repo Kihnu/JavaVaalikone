@@ -9,6 +9,7 @@ public class Comparison {
 	private String lastname;
 	private int vote;
 	private String party;
+	private int c_id;
 	
 	public int getComparisonID() {
 		return comparisonID;
@@ -64,6 +65,14 @@ public class Comparison {
 
 	public void setParty(String party) {
 		this.party = party;
+	}
+
+	public int getC_id() {
+		return c_id;
+	}
+
+	public void setC_id(int c_id) {
+		this.c_id = c_id;
 	}
 
 

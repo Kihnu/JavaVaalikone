@@ -247,6 +247,7 @@ public class Dao {
 				c.setLastname(RS.getString("surname"));
 				c.setParty(RS.getString("party"));
 				c.setVote(RS.getInt("vote_nro"));
+				c.setC_id(RS.getInt("candidate_id"));
 				list.add(c);
 			}
 			return list;

@@ -17,9 +17,7 @@
 <body>
 
 
-	<form method="get" action="http://localhost:8080/AllCandidatesServlet">
-		<button type="submit" class=exitbutton>Back</button>
-	</form>
+	<input type="button" value="Back" class="exitbutton" onclick="history.back()">
 	<br>
 
 	<!-- Kuva tietystä ehdokkaasta -->
