@@ -31,8 +31,7 @@
 			${requestScope.candidate.firstname} ${requestScope.candidate.surname}</label>
 		<label><b>Party:</b> ${requestScope.candidate.party}</label>
 
-		<!-- IKÄ -->
-
+		<label><b>Age:</b> ${requestScope.candidate.age}</label>
 
 		<label><b>Profession:</b> ${requestScope.candidate.profession}</label>
 		<label><b>Extra information:</b> ${requestScope.candidate.why}</label>
@@ -58,37 +57,28 @@
 			<c:choose>
 				<c:when test="${candi[status.index].answer_int == 1}">
 						yksi
-						<%
-					
-				%>
 				</c:when>
 				<c:when test="${candi[status.index].answer_int == 2}">
 					kaksi
-						<%
-					
-				%>
 				</c:when>
 				<c:when test="${candi[status.index].answer_int == 3}">
 					kolme
-					<%
-						
-					%>
 				</c:when>
 				<c:when test="${comparison[status.index].comparisonPercent == 4}">
 					neljä
-					<%
-						
-					%>
 				</c:when>
 				<c:otherwise>
-					ei ole
-					<%
-						
-					%>
+					viisi
 				</c:otherwise>
 			</c:choose>
-			<!--  -->
-			<%--  		<!-- Answer 2 -->
+			<%
+				i++;
+			%>
+		</div>
+
+	</c:forEach>
+	<!--  -->
+	<%--  		<!-- Answer 2 -->
 		<c:if test=" ${candi.answer_int} = 2">
 			<p>Option 2</p>
 		</c:if>
@@ -102,13 +92,6 @@
 		<c:if test=" ${candi.answer_int} = 4">
 			<p>Option 4</p>
 		</c:if>  --%>
-
-			<%
-				i++;
-			%>
-		</div>
-
-	</c:forEach>
 
 
 </body>
