@@ -17,43 +17,27 @@
 	<form method="get" action="/AllCandidatesServlet">
 		<button type="submit" class=exitbutton>Back</button>
 	</form>
+	<br>
 
 	<!-- Kuva tietystä ehdokkaasta -->
 	<h1>More Information on Candidate</h1>
-	<label>Candidate number: <%
-		System.out.println("Tietokannasta");
-	%></label>
-	<label>Party: <%
-		System.out.println("Tietokannasta");
-	%>
-	</label>
-	<label>Profession: <%
-		System.out.println("Tietokannasta");
-	%>
-	</label>
+	<label>Candidate number: </label>
+	<label>${requestScope.candidate.vote_nro}</label>
+	<label>Name: </label>
+	<label>${requestScope.candidate.firstname}
+		${requestScope.candidate.surname}</label>
+	<br>
+	<label>Party: </label>
+	<label>${requestScope.candidate.party}</label>
 
-	<c:forEach var="candidates" items="${requestScope.Candidates}">
-		<tr>
-			<td>
+	<!-- IKÄ -->
 
-
-				<div>
-					<h2>${candidates.firstname}${candidates.surname}</h2>
-					<Br> Election number: ${candidates.vote_nro} <Br> Party: ${candidates.party} <Br>
-					<Br>
-				</div>
-
-			</td>
-
-		</tr>
-
-	</c:forEach>
-
+	<label>Profession: </label>
+	<label>${requestScope.candidate.profession}</label>
 
 	<b>Extra information</b>
-	<%
-		System.out.println("Tietokannasta infoa ehdokkaalle 1");
-	%>
+	<label>${requestScope.candidate.why}</label>
+	<label>${requestScope.candidate.what}</label>
 
 
 </body>

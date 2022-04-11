@@ -32,7 +32,6 @@
 
 
 		<%
-			int i = 0;
 		int j = 1;
 		%>
 
@@ -46,15 +45,16 @@
 
 
 						<div>
-							<h2>${candidates.firstname}${candidates.surname}</h2>
+							<h2>${candidates.firstname} ${candidates.surname}</h2>
+							<input hidden=hidden type="text" name="id"
+					value="${candidates.id}" readonly /> 
 							<img src="/images/kuva<%=j%>.png"> <Br> Election
 							number: ${candidates.vote_nro} <Br> Party:
 							${candidates.party} <Br> <Br>
 						</div>
-						<form action="/SingleCandidate">
-							<button class=infobutton name="info<%=i%>" type="submit">More
-								information</button>
-						</form> <br> <br> <br>
+						<a href="/SingleCandidate?id=${candidates.id}" class="infobutton">More
+								information</a>
+						<br> <br> <br>
 
 					</td>
 
@@ -62,7 +62,6 @@
 
 
 				<%
-					i++;
 				j++;
 				%>
 			</c:forEach>
