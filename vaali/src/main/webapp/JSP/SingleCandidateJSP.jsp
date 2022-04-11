@@ -16,9 +16,10 @@
 <body>
 
 
-	<form method="get" action="/AllCandidatesServlet">
+	<form method="get" action="http://localhost:8080/AllCandidatesServlet">
 		<button type="submit" class=exitbutton>Back</button>
 	</form>
+	<br>
 
 	<!-- Kuva tietystä ehdokkaasta -->
 	<h1>More Information on Candidates answers to questions</h1>
