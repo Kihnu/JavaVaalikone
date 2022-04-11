@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.Dao;
+import data.Candidates;
 import data.SingleCandidateAnswers;
 
 /**
@@ -49,20 +50,22 @@ public class SingleCandidate extends HttpServlet {
 		// Ottaa napista inputin ja sen arvolla saa ehdokkaan numeron. Tällä tiedolla voi etsiä kandidaatin kysymykset
 		String id=request.getParameter("id");
 		ArrayList<SingleCandidateAnswers> singleCandidate = null;
-		
+		Candidates candidates=null;
+	
 		
 		if (dao.getConnection()) {
 			// daosta kandidaatille kysymykset
 			// daosta tietyn kandidaatin vastaukset kysymyksiin
 			singleCandidate = dao.readCertainCandidates(id);
 			// System.out.println(id);
-			
+			candidates = dao.readCertainCandidate(id);
 		} else {
 			System.out.println("No connection to database");
 		}
 	
 		request.setAttribute("singleCandidate", singleCandidate);
 		//System.out.println(singleCandidate);
+		request.setAttribute("candidate", candidates);
 		RequestDispatcher rd=request.getRequestDispatcher("/jsp/SingleCandidateJSP.jsp");
 		rd.forward(request, response);
 	}
