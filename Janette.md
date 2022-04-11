@@ -13,4 +13,5 @@ DAO: readAllAnswersC()  &  readAllCandidates()
 I HELPED:
 
 .CSS files
+
 AddCandidate.java
