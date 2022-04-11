@@ -33,16 +33,15 @@
 	<label>${requestScope.candidate.party}</label>
 
 	<!-- IKÄ -->
+  
 
-	
 	<label>Profession: </label>
 	<label>${requestScope.candidate.profession}</label>
 
 	<b>Extra information</b>
 	<label>${requestScope.candidate.why}</label>
 	<label>${requestScope.candidate.what}</label>
-
-	
+  
 	<h1>More Information on Candidates answers to questions</h1>
 
 	<%
@@ -80,7 +79,6 @@
 		%>
 
 	</c:forEach>
-
 
 
 </body>
