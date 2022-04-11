@@ -22,6 +22,26 @@
 	<br>
 
 	<!-- Kuva tietystä ehdokkaasta -->
+	<h1>More Information on Candidate</h1>
+	<label>Candidate number: </label>
+	<label>${requestScope.candidate.vote_nro}</label>
+	<label>Name: </label>
+	<label>${requestScope.candidate.firstname}
+		${requestScope.candidate.surname}</label>
+	<br>
+	<label>Party: </label>
+	<label>${requestScope.candidate.party}</label>
+
+	<!-- IKÄ -->
+  
+
+	<label>Profession: </label>
+	<label>${requestScope.candidate.profession}</label>
+
+	<b>Extra information</b>
+	<label>${requestScope.candidate.why}</label>
+	<label>${requestScope.candidate.what}</label>
+  
 	<h1>More Information on Candidates answers to questions</h1>
 
 	<%

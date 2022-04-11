@@ -32,7 +32,6 @@
 
 
 		<%
-			int i = 0;
 		int j = 1;
 		%>
 
@@ -46,7 +45,9 @@
 
 
 						<div>
-							<h2>${candidates.firstname}${candidates.surname}</h2>
+							<h2>${candidates.firstname} ${candidates.surname}</h2>
+							<input hidden=hidden type="text" name="id"
+					value="${candidates.id}" readonly /> 
 							<img src="/images/kuva<%=j%>.png"> <Br> Election
 							number: ${candidates.vote_nro} <Br> Party:
 							${candidates.party} <Br> <Br>
@@ -63,7 +64,6 @@
 
 
 				<%
-					i++;
 				j++;
 				%>
 			</c:forEach>
