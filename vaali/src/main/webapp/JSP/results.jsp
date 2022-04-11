@@ -29,12 +29,15 @@
 	<c:forEach var="candidates" items="${requestScope.comparison}"
 		varStatus="status">
 		<div class="cand">
+			<input name="id" value="${comparison[status.index].c_id}"
+				hidden=hidden readonly />
 			<!-- Kandidaatin koko nimi -->
 			<div class="name">${comparison[status.index].firstname} ${comparison[status.index].lastname}</div>
 			<!-- Kandidaatin puolue -->
 			<div class="party">${candidates.party}</div>
 			<!-- Kandidaatin numero -->
-			<div class="candidateNum">Candidate #${comparison[status.index].vote}</div>
+			<div class="candidateNum">Candidate
+				#${comparison[status.index].vote}</div>
 			<div>
 				<br>
 				<%!String color;%>
@@ -69,7 +72,7 @@
 					<c:out value="${comparison[status.index].comparisonPercent}" />
 					%
 				</div>
-
+<a href="/SingleCandidate?id=${candidates.id}" class="infobutton">More information</a>
 			</div>
 			<hr class="solid">
 		</div>

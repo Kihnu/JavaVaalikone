@@ -32,7 +32,7 @@
 
 
 		<%
-		int j = 1;
+			int j = 1;
 		%>
 
 
@@ -44,14 +44,16 @@
 					<td>
 
 
-						<div>
+						<div class="formi">
+
+							<img src="/images/kuva<%=j%>.png">
 							<h2>${candidates.firstname} ${candidates.surname}</h2>
 							<input hidden=hidden type="text" name="id"
-					value="${candidates.id}" readonly /> 
-							<img src="/images/kuva<%=j%>.png"> <Br> Election
-							number: ${candidates.vote_nro} <Br> Party:
-							${candidates.party} <Br> <Br>
-						</div> <a href="/SingleCandidate?id=${candidates.id}" class="infobutton">More information</a> <br> <br> <br> <br>
+								value="${candidates.id}" readonly />Election number:
+							${candidates.vote_nro} <Br> Party: ${candidates.party}
+							<Br><a href="/SingleCandidate?id=${candidates.id}" class="infobutton">More
+							information</a>
+						</div> 
 
 					</td>
 
@@ -64,7 +66,7 @@
 
 
 				<%
-				j++;
+					j++;
 				%>
 			</c:forEach>
 
