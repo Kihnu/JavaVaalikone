@@ -1,16 +1,16 @@
-Servlet
-SingleCandidate.java
-AdminRefresh - Everyone
+Servlet\
+SingleCandidate.java\
+AdminRefresh - Everyone\
 
-JSP
-SingleCandidate
+JSP\
+SingleCandidate\
 
-Data
-SingleCandidateAnswers
+Data\
+SingleCandidateAnswers\
 
-DAO
-ReadCertainCandidates()
+DAO\
+ReadCertainCandidates()\
 
-Other stuff:
-Database - Everyone 
-User interface - Everyone
+Other stuff:\
+Database - Everyone \
+User Interface - Everyone\
