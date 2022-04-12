@@ -17,31 +17,61 @@
 <body>
 
 
-	<input type="button" value="Back" class="exitbutton" onclick="history.back()">
+	<input type="button" value="Back" class="exitbutton"
+		onclick="history.back()">
 	<br>
 
 	<!-- Kuva tietystä ehdokkaasta -->
 
 	<h1>More Information on Candidate</h1>
-	<div class="allCandidatesEdit">
-		<label><b>Candidate number:</b>
-			${requestScope.candidate.vote_nro}</label> <label><b>Name:</b>
-			${requestScope.candidate.firstname} ${requestScope.candidate.surname}</label>
-		<label><b>Party:</b> ${requestScope.candidate.party}</label> <label><b>Age:</b>
-			${requestScope.candidate.age}</label> <label><b>Profession:</b>
-			${requestScope.candidate.profession}</label> <label><b>Extra
-				information:</b> ${requestScope.candidate.why}</label> <label><b>What
-				more:</b>${requestScope.candidate.what}</label>
-	</div>
-	<h1>More Information on Candidates answers to questions</h1>
+	<%!int i = 1;%>
 
-	<%
-		int i = 1;
-	%>
+	<table>
+		<tr>
+			<td><b>Candidate number:</b></td>
+			<td>${requestScope.candidate.vote_nro}</td>
+		</tr>
+
+		<!-- 2 -->
+		<tr>
+			<td><b>Name:</b></td>
+			<td>${requestScope.candidate.firstname}
+				${requestScope.candidate.surname}</td>
+		</tr>
+
+		<tr>
+			<td><b>Party:</b></td>
+			<td>${requestScope.candidate.party}</td>
+		</tr>
+
+		<tr>
+			<td><b>Age:</b></td>
+			<td>${requestScope.candidate.age}</td>
+		</tr>
+
+		<tr>
+			<td><b>Profession:</b></td>
+			<td>${requestScope.candidate.profession}</td>
+		</tr>
+
+		<tr>
+			<td><b>Extra information:</b></td>
+			<td>${requestScope.candidate.why}</td>
+		</tr>
+
+		<tr>
+			<td><b>What more:</b></td>
+			<td>${requestScope.candidate.what}</td>
+		</tr>
+
+	</table>
+
+
+	<h2>More Information on Candidates answers to questions</h2>
 
 	<c:forEach var="candi" items="${requestScope.singleCandidate}">
 		<div class="allCandidatesEdit">
-			
+
 			<h3>
 				Question
 				<%=i%>: ${candi.question}
@@ -72,22 +102,7 @@
 		</div>
 
 	</c:forEach>
-	<!--  -->
-	<%--  		<!-- Answer 2 -->
-		<c:if test=" ${candi.answer_int} = 2">
-			<p>Option 2</p>
-		</c:if>
-
-		<!-- Answer 3 -->
-		<c:if test=" ${candi.answer_int} = 3">
-			<p>Option 3</p>
-		</c:if>
-
-		<!-- Answer 4 -->
-		<c:if test=" ${candi.answer_int} = 4">
-			<p>Option 4</p>
-		</c:if>  --%>
-
+	
 
 </body>
 </html>
