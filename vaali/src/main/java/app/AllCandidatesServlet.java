@@ -30,8 +30,6 @@ public class AllCandidatesServlet extends HttpServlet {
 		String password = getServletContext().getInitParameter("passwd");
 		
 		dao = new Dao(url, user, password);
-
-		// dao=new DAO.Dao("jdbc:mysql://localhost:3306/vaalikone", "user", "password");
 	}
 	
        
