@@ -77,13 +77,13 @@ public class Comparison extends HttpServlet {
 			System.out.println("No connection to database");
 		}
 
-		for (int i = 0; i < questionlist.size(); i++) { // Niin kauan kun kysymyksiä riittää, katsotaan mitä äänestäjä on vastannut
+		for (int i = 0; i < questionlist.size(); i++) {
 			String answer = request.getParameter("answer" + (i + 1));
 			if (answer.equals("option1")) {
 				number = 1;
 			} else if (answer.equals("option2")) {
 				number = 2;
-			} else if (answer.equals("option3")) { // Nappien arvon perusteella annetaan numeerinen vastaus
+			} else if (answer.equals("option3")) {
 				number = 3;
 			} else if (answer.equals("option4")) {
 				number = 4;
@@ -96,7 +96,7 @@ public class Comparison extends HttpServlet {
 
 		int id;
 
-		for (id = 1; id < candidates.size() + 1; id++) { // Lisätään ehdokkaiden kaikki vastaukset omiin listoihinsa
+		for (id = 1; id < candidates.size() + 1; id++) {
 			candidatelist = new ArrayList<>();
 			candidateanswers = dao.readCertainAnswersC(id);
 			for (int j = 0; j < candidateanswers.size(); j++) {
@@ -115,24 +115,24 @@ public class Comparison extends HttpServlet {
 		
 		ArrayList<Integer> comparison = null;
 		
-		for (int x = 0; x < lists.size(); x++) { // Äänestäjän vastaukset verrataan ehdokkaiden vastauksiin
+		for (int x = 0; x < lists.size(); x++) {
 			comparison = new ArrayList<>();
 			candidatelist = lists.get(x);
 			for (y = 0; y < userlist.size(); y++ ) {
-				user_num = userlist.get(y); // Otetaan käyttäjän vastaus tiettyyn kysymykseen
-				candid_num = candidatelist.get(y); // Otetaan tietyn ehdokkaan vastaus samaan kysymykseen
-				int bigger = Math.max(user_num, candid_num); // Otetaan näistä kahdesta isompi
-				int smaller = Math.min(user_num, candid_num); // Ja pienempi
-				int diff = bigger - smaller; // Isommasta miinustetaan pienempi luku
-				int percentage = diff * 25; // Kerrotaan erotus 25
-				int comp = 100 - percentage; // Miinustetaan edellinen luku 100:sta
-				comparison.add(comp); // Lisätään tulos listaan.
+				user_num = userlist.get(y);
+				candid_num = candidatelist.get(y);
+				int bigger = Math.max(user_num, candid_num);
+				int smaller = Math.min(user_num, candid_num);
+				int diff = bigger - smaller;
+				int percentage = diff * 25;
+				int comp = 100 - percentage;
+				comparison.add(comp);
 			}
-			for (z = 0; z < comparison.size(); z++) { // Lisätään kaikki tulokset yhteen
+			for (z = 0; z < comparison.size(); z++) {
 				sum = sum + comparison.get(z);
 			}
-			
-			int average = sum / comparison.size(); // Jaetaan kaikkien tuloksien summa verrattavien kohteiden määrällä
+			//System.out.println("SUMMA :" + sum);
+			int average = sum / comparison.size();
 			//System.out.println("TAMA ON TULOSSA DATABASEE: " + (x+1) + " - " + average + " %");
 			dao.addComparison(x+1, average);
 			sum = 0;

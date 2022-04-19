@@ -81,13 +81,13 @@ public class AddCandidate extends HttpServlet {
 
 			int cand = candidatesList.size();
 			int ques;
-			String url = getServletContext().getInitParameter("connection_url_admin");
-			String user = getServletContext().getInitParameter("username");
-			String password = getServletContext().getInitParameter("passwd");
+			String dbURL = "jdbc:mysql://localhost:3306/";
+			String username = "user";
+			String password = "password";
 			Connection conn;
 			
 			try {
-				conn = DriverManager.getConnection(url, user, password);
+				conn = DriverManager.getConnection(dbURL, username, password);
 				String sql = "";
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				sql = "use vaalikone";
