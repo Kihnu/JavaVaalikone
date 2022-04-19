@@ -1,7 +1,11 @@
 # JavaVaalikone
 HAMK ryhmäprojekti
 
-Tietokannan versio:
+Java JDK (Java Development Kit: JDK11.0.14
+
+Google SDK
+
+Tietokannan versio: MySQL Server 5.7.37, MySQL router 8.0.28
 
 Eclipse versio: Eclipse 2020-06 Web Developer
 
