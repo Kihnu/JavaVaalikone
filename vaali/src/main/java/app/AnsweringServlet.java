@@ -29,7 +29,6 @@ public class AnsweringServlet extends HttpServlet {
 		String password = getServletContext().getInitParameter("passwd");
 		
 		dao = new Dao(url, user, password);
-		// dao = new Dao("jdbc:mysql://localhost:3306/", "user", "password");
 	}
 
     /**
