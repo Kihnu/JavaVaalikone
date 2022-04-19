@@ -1,5 +1,7 @@
-# JavaVaalikone
-HAMK ryhmäprojekti
+# Java Vaalikone
+HAMK ryhmäprojekti, moduuli 4
+
+
 
 Java JDK (Java Development Kit: JDK11.0.14
 
