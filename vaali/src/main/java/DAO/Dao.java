@@ -14,6 +14,10 @@ import data.Comparison;
 import java.sql.Connection;
 import data.SingleCandidateAnswers;
 
+/**
+ * @author Toni, Erik & Janette
+ *
+ */
 public class Dao {
 	private String user;
 	private String pass;
@@ -43,6 +47,10 @@ public class Dao {
 		}
 	}
 
+
+	/** Reads all the questions so the voter can read and answer them.
+	 * @return returns every question to a list.
+	 */
 	public ArrayList<Questions> readAllQuestions() {
 		ArrayList<Questions> list = new ArrayList<>();
 		try {
@@ -66,6 +74,9 @@ public class Dao {
 
 	}
 
+	/** Reads all the candidates and their informations.
+	 * @return returns every candidate to a list.
+	 */
 	public ArrayList<Candidates> readAllCandidates() {
 		ArrayList<Candidates> list = new ArrayList<>();
 		try {
@@ -96,6 +107,10 @@ public class Dao {
 
 	}
 
+	/** Reads a certain one candidate.
+	 * @param id is the unique number of the candidate.
+	 * @return returns a candidate with a certain id.
+	 */
 	public Candidates readCertainCandidate(String id) {
 		Candidates c = null;
 		try {
@@ -126,6 +141,9 @@ public class Dao {
 		}
 	}
 
+	/** Reads all the answers the candidates have given.
+	 * @return returns every answer from the candidates.
+	 */
 	public ArrayList<AnswersC> readAllAnswersC() {
 		ArrayList<AnswersC> list = new ArrayList<>();
 		try {
@@ -150,6 +168,10 @@ public class Dao {
 
 	}
 
+	/** Reads a certain answer from the candidates.
+	 * @param id is the unique number for answers.
+	 * @return returns certains answers from candidates.
+	 */
 	public ArrayList<Integer> readCertainAnswersC(int id) {
 		ArrayList<Integer> list = new ArrayList<>();
 		try {
@@ -171,6 +193,11 @@ public class Dao {
 
 	}
 
+	/** Adds the calculated numbers for the candidates.
+	 * @param candidate is the unique id for a candidate.
+	 * @param average is the number of how many percent the candidate and voter agree with each others.
+	 * @return returns the percentage to a list.
+	 */
 	public ArrayList<Integer> addComparison(int candidate, int average) {
 		ArrayList<Integer> list = new ArrayList<>();
 		try {
@@ -186,6 +213,10 @@ public class Dao {
 		return list;
 	}
 
+	/** Updates already existing candidate's information.
+	 * @param c is the candidate that is going to be added.
+	 * @return returns all candidates with updated information.
+	 */
 	public ArrayList<Candidates> updateCandidate(Candidates c) {
 		try {
 			Statement stmt = conn.createStatement();
@@ -210,6 +241,10 @@ public class Dao {
 		}
 	}
 
+	/** Deletes a candidate from the database.
+	 * @param id is the unique number for the candidate.
+	 * @return returns all the candidates that are left.
+	 */
 	public ArrayList<Candidates> deleteCandidate(String id) {
 		try {
 			Statement stmt = conn.createStatement();
@@ -228,6 +263,9 @@ public class Dao {
 		}
 	}
 
+	/** Reads all the comparison numbers and orders them from the highest number to the lowest.
+	 * @return returns every comparison between the voter and candidates to a list.
+	 */
 	public ArrayList<Comparison> readAllComparison() {
 		ArrayList<Comparison> list = new ArrayList<>();
 		try {
@@ -257,6 +295,17 @@ public class Dao {
 		}
 	}
 
+	/** Adds a new candidate.
+	 * @param surname is the surname of the candidate.
+	 * @param firstname is the first name of the candidate.
+	 * @param age is the age of the candidate.
+	 * @param party is the party of the candidate.
+	 * @param profession is the profession of the candidate.
+	 * @param why is why the candidate is running for the office.
+	 * @param what is what the candidate wants to do when they get elected.
+	 * @param vote_nro is the number you will be voting for.
+	 * @return returns all the candidates to a list with the new candidate.
+	 */
 	public ArrayList<Candidates> addCandidate(String surname, String firstname, int age, String party,
 			String profession, String why, String what, int vote_nro) {
 		try {
@@ -277,6 +326,10 @@ public class Dao {
 	}
 
 	// Tietylle kandidaatille kysymykset ja niille vastaukset
+	/** Reads a certain candidate and all the answers for them.
+	 * @param id is the id for the candidate.
+	 * @return returns the questions and candidates to a list.
+	 */
 	public ArrayList<SingleCandidateAnswers> readCertainCandidates(String id) {
 		ArrayList<SingleCandidateAnswers> list = new ArrayList<>();
 		try {
