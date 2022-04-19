@@ -57,12 +57,15 @@ public class AdminRefresh extends HttpServlet {
 
 			String sql = "";
 			// Miten ottaa DAOsta
-			String dbURL = "jdbc:mysql://localhost:3306/";
-			String username = "user";
-			String password = "password";
+//			String dbURL = "jdbc:mysql://localhost:3306/";
+//			String username = "user";
+//			String password = "password";
+			String url = getServletContext().getInitParameter("connection_url_admin");
+			String user = getServletContext().getInitParameter("username");
+			String password = getServletContext().getInitParameter("passwd");
 
 			try {
-				Connection conn = DriverManager.getConnection(dbURL, username, password);
+				Connection conn = DriverManager.getConnection(url, user, password);
 
 				if (conn != null) {
 					System.out.println("Connected!");
