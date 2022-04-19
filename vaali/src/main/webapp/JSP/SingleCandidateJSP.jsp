@@ -32,7 +32,6 @@
 			<td>${requestScope.candidate.vote_nro}</td>
 		</tr>
 
-		<!-- 2 -->
 		<tr>
 			<td><b>Name:</b></td>
 			<td>${requestScope.candidate.firstname}
@@ -73,8 +72,8 @@
 		<div class="allCandidatesEdit">
 
 			<h3>
-				Question
-				<%=i%>: ${candi.question}
+				<!--  Ottaa tietokannasta question.id, muuten juokseva numerointi vaan jatkaa loputtomiin -->
+				Question<!-- <%=i%> -->: ${candi.question}
 			</h3>
 
 			<%-- <div>${candi.answer_int}</div> --%>
