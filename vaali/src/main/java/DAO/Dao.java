@@ -42,7 +42,7 @@ public class Dao {
 			}
 			return true;
 		} catch (SQLException e) {
-			System.out.println("DAO get connection" + e.getMessage());
+			System.out.println("DAO get connection " + e.getMessage());
 			return false;
 		}
 	}
